@@ -26,6 +26,11 @@
       "source": "/charla",
       "destination": "/charlas",
       "permanent": true
+    },
+    {
+      "source": "/consejo",
+      "destination": "/newsletter",
+      "permanent": false
     }
   ],
   "headers": [

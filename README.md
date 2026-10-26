@@ -11,6 +11,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | `/libro` | `libro/index.html` | Material del libro. Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas) |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
 | `/iso-42001` | `iso-42001.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
+| `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
 | `/privacidad`, `/aviso-legal`, `/cookies` | `*.html` | Textos legales |
@@ -49,3 +50,19 @@ python3 -m http.server 8000
 ```
 
 Las direcciones sin `.html` (por ejemplo `/diagnostico`) solo funcionan en Vercel; en local abre `diagnostico.html`.
+
+## Newsletter «Un consejo al día»
+
+Hay tres formularios de alta: la sección de la portada (`#newsletter`), la página `/newsletter` y la franja del pie, que sale en todas las páginas. Los tres envían a `/api/newsletter` (`api/newsletter.js`), que valida y reenvía al webhook de `NEWSLETTER_WEBHOOK_URL` o, si esa variable no existe, al de `CONTACTO_WEBHOOK_URL`.
+
+Datos que llegan: `first_name` (opcional), `email`, `consentimiento_newsletter: "si"`, `fecha_consentimiento` (fecha y hora ISO), `pagina` y las etiquetas `origen-jacobruiz-es`, `newsletter-consejo-diario` y `newsletter-desde-<portada|newsletter|pie>`.
+
+Automatización que hay que montar en el Sistema Advantys:
+
+1. Disparador: entra un contacto con la etiqueta `newsletter-consejo-diario`.
+2. Enviar en el momento el email de bienvenida (lo prepara Jacob con Claude). El formulario le dice al usuario que lo acaba de recibir.
+3. El contacto entra en la lista «Newsletter diaria», que recibe un envío al día a la misma hora (propuesta: 7:30, hora de Madrid). Cada envío diario lo programa Jacob después de revisarlo.
+4. Todos los emails llevan enlace de baja de un clic y los datos del remitente. Quien se da de baja pierde la etiqueta y sale de la lista.
+5. Remitente: Jacob Ruiz, con un buzón de jacobruiz.es. El dominio necesita SPF, DKIM y DMARC configurados antes del primer envío, o los emails acabarán en spam.
+
+El formulario de contacto no apunta a nadie a la newsletter: son consentimientos distintos.

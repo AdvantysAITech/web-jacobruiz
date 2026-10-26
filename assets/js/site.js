@@ -63,6 +63,39 @@
     document.querySelectorAll(".chapter").forEach(function (c) { io2.observe(c); });
   }
 
+  /* ---------- Newsletter (varios formularios por página) ---------- */
+  var EMAIL_N = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  document.querySelectorAll("[data-newsletter]").forEach(function (nf) {
+    var err = nf.querySelector("[data-error]");
+    var ok = nf.querySelector("[data-ok]");
+    var btn = nf.querySelector("[type=submit]");
+    nf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var fd = new FormData(nf);
+      if (fd.get("web")) return;
+      var email = String(fd.get("email") || "").trim();
+      var msg = "";
+      if (!EMAIL_N.test(email)) msg = "Revisa el email: parece que falta algo.";
+      else if (fd.get("acepta") !== "on") msg = "Marca la casilla para que pueda escribirte.";
+      err.textContent = msg;
+      if (msg) { (msg.indexOf("email") > -1 ? nf.querySelector("[name=email]") : nf.querySelector("[name=acepta]")).focus(); return; }
+      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, acepta: true, lugar: nf.getAttribute("data-lugar") || "web", web: "", pagina: location.pathname };
+      btn.setAttribute("aria-busy", "true");
+      var local = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
+      var envio = local
+        ? new Promise(function (r) { console.info("[jacobruiz.es] Modo local, alta no enviada:", datos); setTimeout(r, 600); })
+        : fetch("/api/newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
+            .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); });
+      envio.then(function () {
+        nf.classList.add("is-done");
+        ok.hidden = false;
+        ok.focus();
+      }).catch(function () {
+        err.textContent = "No he podido apuntarte. Inténtalo de nuevo en un momento o escríbeme a contacto@jacobruiz.es.";
+      }).then(function () { btn.removeAttribute("aria-busy"); });
+    });
+  });
+
   /* ---------- Formulario ---------- */
   var form = document.querySelector("[data-form]");
   if (!form) return;
