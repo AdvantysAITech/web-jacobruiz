@@ -16,6 +16,16 @@
       "source": "/poltica-de-privacidad-9381-613928-270012",
       "destination": "/cookies",
       "permanent": true
+    },
+    {
+      "source": "/ai-act",
+      "destination": "/iso-42001",
+      "permanent": false
+    },
+    {
+      "source": "/charla",
+      "destination": "/charlas",
+      "permanent": true
     }
   ],
   "headers": [

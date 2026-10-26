@@ -68,10 +68,25 @@
   if (!form) return;
 
   var params = new URLSearchParams(location.search);
-  var MOTIVOS = ["contacto", "diagnostico", "iso-42001", "conferencia"];
+  var MOTIVOS = ["ai-act", "charla", "iso-42001", "contacto"];
+  var ALIAS = { conferencia: "charla", diagnostico: "contacto" };
   var motivo = (params.get("motivo") || "").toLowerCase();
+  if (ALIAS[motivo]) motivo = ALIAS[motivo];
   var select = form.querySelector("[name=motivo]");
   if (select && MOTIVOS.indexOf(motivo) > -1) select.value = motivo;
+
+  /* Casilla de presupuesto: obligatoria salvo para «Otro asunto» */
+  var cajaPresu = form.querySelector("[data-budget]");
+  var presu = cajaPresu && cajaPresu.querySelector("input");
+  function ajustarPresupuesto() {
+    if (!presu || !select) return;
+    var otro = select.value === "contacto";
+    cajaPresu.hidden = otro;
+    presu.required = !otro;
+    if (otro) { cajaPresu.removeAttribute("data-invalid"); cajaPresu.querySelector(".field__error").textContent = ""; }
+  }
+  if (select) select.addEventListener("change", ajustarPresupuesto);
+  ajustarPresupuesto();
 
   var status = form.querySelector("[data-status]");
   var done = document.querySelector("[data-done]");
@@ -82,14 +97,14 @@
     var caja = campo.closest(".field") || campo.closest(".check");
     var error = caja && caja.querySelector(".field__error");
     var msg = "";
-    if (campo.type === "checkbox") { if (campo.required && !campo.checked) msg = "Necesitamos tu aceptación para poder responderte."; }
+    if (campo.type === "checkbox") { if (campo.required && !campo.checked) msg = campo.name === "presupuesto" ? "Si no tienes presupuesto, prefiero que empieces por el libro y el material gratuito." : "Necesitamos tu aceptación para poder responderte."; }
     else if (campo.required && !campo.value.trim()) msg = "Este campo es obligatorio.";
     else if (campo.type === "email" && campo.value && !EMAIL.test(campo.value.trim())) msg = "Revisa el email: parece que falta algo.";
     if (caja) { if (msg) caja.setAttribute("data-invalid", ""); else caja.removeAttribute("data-invalid"); }
     if (error) error.textContent = msg;
     return !msg;
   }
-  form.querySelectorAll("[required]").forEach(function (c) {
+  form.querySelectorAll("[required], [name=presupuesto]").forEach(function (c) {
     c.addEventListener("blur", function () { validar(c); });
     c.addEventListener(c.type === "checkbox" ? "change" : "input", function () {
       var caja = c.closest(".field") || c.closest(".check");
@@ -113,6 +128,7 @@
       motivo: fd.get("motivo"),
       mensaje: String(fd.get("mensaje") || "").trim(),
       acepta_privacidad: fd.get("acepta_privacidad") === "on",
+      presupuesto: fd.get("presupuesto") === "on",
       web: "",
       pagina: location.pathname + location.search
     };

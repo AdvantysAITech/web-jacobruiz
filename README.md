@@ -6,12 +6,13 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 
 | Dirección | Archivo | Notas |
 | --- | --- | --- |
-| `/` | `index.html` | Portada: libro, accesos para lectores, sobre Jacob |
+| `/` | `index.html` | Portada de venta: precio primero (paquete AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
+| `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
 | `/libro` | `libro/index.html` | Material del libro. Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas) |
-| `/diagnostico` | `diagnostico.html` | Diagnóstico de procesos (QR del libro) |
-| `/iso-42001` | `iso-42001.html` | Consultoría ISO/IEC 42001 y Reglamento de IA (QR del libro) |
+| `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
+| `/iso-42001` | `iso-42001.html` | Paquete «AI Act en regla», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
-| `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=contacto`, `diagnostico`, `iso-42001` o `conferencia` |
+| `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
 | `/privacidad`, `/aviso-legal`, `/cookies` | `*.html` | Textos legales |
 
 Norma de Amazon KDP: las direcciones impresas en el libro abren páginas informativas, nunca un formulario directamente.
@@ -22,7 +23,8 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 
 | Qué | Dónde |
 | --- | --- |
-| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la sección del libro |
+| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la tarjeta «El libro» (sustituye al botón «Muy pronto en Amazon») |
+| Automatización del Sistema Advantys: nuevas etiquetas `motivo-ai-act` y `motivo-charla` y campo `presupuesto_confirmado` | webhook de `CONTACTO_WEBHOOK_URL` |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
 Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, de `Portada_Kindle.jpg`) y `og.jpg` (1200 × 630, para redes). Si falta alguna, la web muestra un marco neutro en su lugar.
