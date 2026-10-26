@@ -6,11 +6,11 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 
 | Dirección | Archivo | Notas |
 | --- | --- | --- |
-| `/` | `index.html` | Portada de venta: precio primero (paquete AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
+| `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
 | `/libro` | `libro/index.html` | Material del libro. Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas) |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
-| `/iso-42001` | `iso-42001.html` | Paquete «AI Act en regla», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
+| `/iso-42001` | `iso-42001.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
 | `/privacidad`, `/aviso-legal`, `/cookies` | `*.html` | Textos legales |
