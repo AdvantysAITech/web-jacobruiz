@@ -101,13 +101,37 @@
   if (gate) {
     var CLAVE = "jr_material_libro";
     var okMsg = document.querySelector("[data-gate-ok]");
+    // Capítulo al que volver después de desbloquear (el del QR o el del enlace pulsado)
+    var destino = /^#(capitulo-\d+|anexos)$/.test(location.hash) ? location.hash.slice(1) : null;
+    var aviso = null;
     function desbloquear(foco) {
       document.querySelectorAll("[data-href]").forEach(function (a) { a.setAttribute("href", a.getAttribute("data-href")); });
       doc.classList.add("material-libre");
       gate.hidden = true;
       okMsg.hidden = false;
+      if (aviso) aviso.remove();
       try { localStorage.setItem(CLAVE, "1"); } catch (e) {}
-      if (foco) okMsg.focus();
+      if (!foco) return;
+      var vuelta = destino && document.getElementById(destino);
+      if (vuelta) { vuelta.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); vuelta.setAttribute("tabindex", "-1"); vuelta.focus({ preventScroll: true }); }
+      else okMsg.focus();
+    }
+    document.querySelectorAll("[data-href]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (doc.classList.contains("material-libre")) return;
+        var cap = a.closest(".chapter");
+        if (cap && cap.id) destino = cap.id;
+      });
+    });
+    // Si llega desde el QR de un capítulo con el material bloqueado, se lo decimos ahí mismo
+    if (destino && !doc.classList.contains("material-libre")) {
+      var capDestino = document.getElementById(destino);
+      if (capDestino) {
+        aviso = document.createElement("p");
+        aviso.className = "gate__hint";
+        aviso.innerHTML = 'Para descargar este material, <a href="#acceso">desbloquéalo aquí</a> con tu email o con una pregunta del libro. Después vuelves aquí solo.';
+        capDestino.insertBefore(aviso, capDestino.firstChild);
+      }
     }
     var guardado = false;
     try { guardado = localStorage.getItem(CLAVE) === "1"; } catch (e) {}

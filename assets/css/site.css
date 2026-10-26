@@ -756,3 +756,5 @@ h1, h2, h3 { margin: 0; font-weight: 600; color: var(--text); }
 .gate__ok .icon { width: 22px; height: 22px; color: var(--accent-ink); flex: none; margin-top: 1px; }
 html:not(.material-libre) .file__get { opacity: 0.35; }
 @media (max-width: 860px) { .gate__grid { grid-template-columns: 1fr; } }
+.gate__hint { grid-column: 1 / -1; margin: 0; padding: 14px 18px; border-radius: var(--radius-field); background: var(--accent-soft); color: var(--text); font-size: 0.95rem; }
+.gate__hint a { color: var(--text); font-weight: 600; text-underline-offset: 3px; }
