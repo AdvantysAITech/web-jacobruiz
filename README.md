@@ -22,7 +22,6 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 
 | Qué | Dónde |
 | --- | --- |
-| URL del webhook del formulario | Vercel → Settings → Environment Variables → `CONTACTO_WEBHOOK_URL` |
 | Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la sección del libro |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
@@ -32,7 +31,7 @@ Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del 
 
 ## Formulario
 
-`formulario.html` envía a `/api/contacto` (`api/contacto.js`), que valida los datos y los reenvía al webhook de `CONTACTO_WEBHOOK_URL` con las etiquetas `origen-jacobruiz-es` y `motivo-<motivo>`. En local el envío se simula y se ve en la consola.
+`formulario.html` envía a `/api/contacto` (`api/contacto.js`), que valida los datos y los reenvía al webhook de `CONTACTO_WEBHOOK_URL` (variable ya configurada en Vercel; recibe los datos la automatización «Web jacobruiz.es · Formulario de contacto» del Sistema Advantys) con las etiquetas `origen-jacobruiz-es` y `motivo-<motivo>`. En local el envío se simula y se ve en la consola.
 
 ## Diseño
 
