@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escríbeme · Jacob Ruiz</title>
+<meta name="description" content="Formulario de contacto de Jacob Ruiz.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jacobruiz.es/formulario">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0f11" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Escríbeme · Jacob Ruiz">
+<meta property="og:description" content="Formulario de contacto de Jacob Ruiz.">
+<meta property="og:url" content="https://jacobruiz.es/formulario">
+<meta property="og:image" content="https://jacobruiz.es/assets/img/og.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="nav-shell">
+  <nav class="nav" aria-label="Principal">
+    <a class="brand" href="/">Jacob Ruiz</a>
+    <ul class="nav__links"><li><a href="/#libro">El libro</a></li><li><a href="/libro">Material</a></li><li><a href="/diagnostico">Diagnóstico</a></li><li><a href="/iso-42001">ISO 42001</a></li></ul>
+    <a class="btn" href="/contacto"><span>Contactar</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span></button>
+  </nav>
+</div>
+<div class="menu" id="menu" aria-hidden="true"><ul><li><a href="/#libro">El libro<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/libro">Material<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/diagnostico">Diagnóstico<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/iso-42001">ISO 42001<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/contacto">Contactar<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li></ul></div>
+<main id="contenido">
+<section class="page-head" style="padding-bottom:32px">
+  <div class="wrap">
+    <h1 class="display" data-reveal>Escríbeme</h1>
+    <p class="lead" data-reveal style="--i:1">Cuéntame qué necesitas y te respondo por email.</p>
+  </div>
+</section>
+<section class="section--tight" style="padding-top:0">
+  <div class="wrap" style="max-width:760px;margin-left:max(0px,calc((100% - var(--wrap)) / 2))">
+    <form class="form" data-form novalidate>
+      <div class="form__row">
+        <div class="field">
+          <label for="f-nombre">Nombre y apellidos *</label>
+          <input class="input" id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+          <p class="field__error" id="e-nombre" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email *</label>
+          <input class="input" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required aria-describedby="e-email">
+          <p class="field__error" id="e-email" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="f-empresa">Empresa <span class="opt">(opcional)</span></label>
+          <input class="input" id="f-empresa" name="empresa" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-motivo">Motivo *</label>
+          <select class="select" id="f-motivo" name="motivo" required aria-describedby="e-motivo">
+            <option value="contacto">Contacto general</option>
+            <option value="diagnostico">Diagnóstico de procesos</option>
+            <option value="iso-42001">Consultoría ISO/IEC 42001</option>
+            <option value="conferencia">Conferencia o formación</option>
+          </select>
+          <p class="field__error" id="e-motivo" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-mensaje">Mensaje *</label>
+        <textarea class="textarea" id="f-mensaje" name="mensaje" required aria-describedby="e-mensaje"></textarea>
+        <p class="field__error" id="e-mensaje" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" name="acepta_privacidad" required aria-describedby="e-priv"><span>He leído y acepto la <a href="/privacidad" target="_blank" rel="noopener">política de privacidad</a>. *</span></label>
+        <p class="field__error" id="e-priv" aria-live="polite"></p>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="f-web">Web</label><input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="form__status form__status--error" data-status role="alert"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-warning-circle"/></svg><p style="margin:0">No hemos podido enviar el mensaje. Inténtalo de nuevo o escribe a <a href="mailto:contacto@jacobruiz.es">contacto@jacobruiz.es</a>.</p></div>
+      <div><button class="btn" type="submit"><span>Enviar mensaje</span><span class="btn__dot"><svg class="icon i-go" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg><svg class="icon i-spin" aria-hidden="true"><use href="/assets/icons.svg#i-spinner-gap"/></svg></span></button></div>
+    </form>
+    <div class="done" data-done tabindex="-1" role="status">
+      <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-check-circle"/></svg>
+      <h2 class="h3">Mensaje enviado</h2>
+      <p class="body" style="margin:10px 0 24px">Gracias. Te responderé a la dirección de email que me has indicado.</p>
+      <a class="link-arrow" href="/">Volver al inicio <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="/">Jacob Ruiz</a>
+        <p>Inteligencia artificial y automatización para pymes, sin perder el trato humano.</p>
+      </div>
+      <div>
+        <h2>Para lectores</h2>
+        <ul>
+          <li><a href="/libro">Material del libro</a></li>
+          <li><a href="https://advantys.ai/curso-ia-gratis">Curso de IA gratuito</a></li>
+          <li><a href="/diagnostico">Diagnóstico de procesos</a></li>
+          <li><a href="/iso-42001">ISO/IEC 42001</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href="mailto:contacto@jacobruiz.es">contacto@jacobruiz.es</a></li>
+          <li><a href="https://www.linkedin.com/in/ruiz-jacob/" rel="noopener">LinkedIn</a></li>
+          <li><a href="/contacto">Página de contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Jacob Ruiz</span>
+      <span><a href="/aviso-legal">Aviso legal</a> &nbsp; <a href="/privacidad">Privacidad</a> &nbsp; <a href="/cookies">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
