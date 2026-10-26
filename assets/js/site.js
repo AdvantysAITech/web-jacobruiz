@@ -96,6 +96,74 @@
     });
   });
 
+  /* ---------- Material del libro: registro o pregunta del libro ---------- */
+  var gate = document.querySelector("[data-gate]");
+  if (gate) {
+    var CLAVE = "jr_material_libro";
+    var okMsg = document.querySelector("[data-gate-ok]");
+    function desbloquear(foco) {
+      document.querySelectorAll("[data-href]").forEach(function (a) { a.setAttribute("href", a.getAttribute("data-href")); });
+      doc.classList.add("material-libre");
+      gate.hidden = true;
+      okMsg.hidden = false;
+      try { localStorage.setItem(CLAVE, "1"); } catch (e) {}
+      if (foco) okMsg.focus();
+    }
+    var guardado = false;
+    try { guardado = localStorage.getItem(CLAVE) === "1"; } catch (e) {}
+    if (guardado) desbloquear(false);
+
+    // Puerta 1: registro
+    var gf = gate.querySelector("[data-gate-form]");
+    var gErr = gf.querySelector("[data-error]");
+    var gBtn = gf.querySelector("[type=submit]");
+    gf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var fd = new FormData(gf);
+      if (fd.get("web")) return;
+      var email = String(fd.get("email") || "").trim();
+      var msg = "";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) msg = "Revisa el email: parece que falta algo.";
+      else if (fd.get("acepta_privacidad") !== "on") msg = "Marca la casilla de la política de privacidad para continuar.";
+      gErr.textContent = msg;
+      if (msg) return;
+      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, newsletter: fd.get("newsletter") === "on", acepta_privacidad: true, web: "", pagina: location.pathname };
+      gBtn.setAttribute("aria-busy", "true");
+      var local = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
+      var envio = local
+        ? new Promise(function (r) { console.info("[jacobruiz.es] Modo local, registro no enviado:", datos); setTimeout(r, 600); })
+        : fetch("/api/material", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
+            .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); });
+      envio.then(function () { desbloquear(true); })
+        .catch(function () { gErr.textContent = "No he podido registrarte. Inténtalo de nuevo o contesta la pregunta del libro."; })
+        .then(function () { gBtn.removeAttribute("aria-busy"); });
+    });
+
+    // Puerta 2: pregunta del libro
+    var PREGUNTAS = [
+      { q: "En la conclusión, cada flujo que automatizas es «un ___ más». ¿Qué palabra falta?", a: ["ladrillo"] },
+      { q: "Según el capítulo 14, ¿cuántos controles incluye el anexo de la norma ISO/IEC 42001?", a: ["38", "treinta y ocho"] },
+      { q: "Según el capítulo 14, ¿en cuántas áreas se agrupan los controles de la norma ISO/IEC 42001?", a: ["9", "nueve"] }
+    ];
+    var gq = gate.querySelector("[data-gate-quiz]");
+    var qLabel = gq.querySelector("[data-quiz-q]");
+    var qInput = gq.querySelector("[name=respuesta]");
+    var qErr = gq.querySelector("[data-error]");
+    var actual = Math.floor(Math.random() * PREGUNTAS.length);
+    function mostrar() { qLabel.textContent = PREGUNTAS[actual].q; qInput.value = ""; qErr.textContent = ""; }
+    function normal(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim(); }
+    mostrar();
+    gq.querySelector("[data-quiz-next]").addEventListener("click", function () { actual = (actual + 1) % PREGUNTAS.length; mostrar(); qInput.focus(); });
+    gq.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var r = normal(qInput.value);
+      if (!r) { qErr.textContent = "Escribe la respuesta."; return; }
+      var bien = PREGUNTAS[actual].a.some(function (x) { return normal(x) === r; });
+      if (bien) desbloquear(true);
+      else qErr.textContent = "Esa no es. Búscalo en el libro y vuelve a probar.";
+    });
+  }
+
   /* ---------- Formulario ---------- */
   var form = document.querySelector("[data-form]");
   if (!form) return;
