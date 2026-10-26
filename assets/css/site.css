@@ -259,7 +259,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; color: var(--text); }
 .media { position: relative; background: var(--surface-2); }
 .media img { width: 100%; height: 100%; object-fit: cover; }
 .media--portrait { aspect-ratio: 4 / 5; }
-.media--cover { aspect-ratio: 5 / 8; }
+.media--cover { aspect-ratio: 2 / 3; }
 .media.is-missing img { visibility: hidden; }
 .media.is-missing::after {
   content: attr(data-hueco); position: absolute; inset: 0; display: grid; place-items: center;

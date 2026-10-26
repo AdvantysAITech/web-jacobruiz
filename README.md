@@ -18,19 +18,17 @@ Norma de Amazon KDP: las direcciones impresas en el libro abren páginas informa
 
 La cabecera y el pie están repetidos en cada página: si se cambian, hay que cambiarlos en todas.
 
-## Pendiente antes de publicar
+## Pendiente
 
-| Qué | Dónde | Tamaño |
-| --- | --- | --- |
-| Foto de Jacob | `assets/img/jacob-ruiz.jpg` | 1200 × 1500 px (vertical 4:5) |
-| Portada del libro | `assets/img/portada-libro.jpg` (es `Portada_Kindle.jpg` de la carpeta «2 Kindle») | 1600 × 2560 px |
-| Imagen para redes | `assets/img/og.jpg` | 1200 × 630 px |
-| Los 40 archivos descargables y el ZIP `Recursos_Vende_mas_y_trabaja_menos.zip` | `libro/descargas/` (contenido de la carpeta `descargas` del ZIP «Pagina_de_recursos_para_subir_a_la_web.zip») | · |
-| URL del webhook del formulario | Vercel → Settings → Environment Variables → `CONTACTO_WEBHOOK_URL` | · |
-| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la sección del libro | · |
-| Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` | · |
+| Qué | Dónde |
+| --- | --- |
+| URL del webhook del formulario | Vercel → Settings → Environment Variables → `CONTACTO_WEBHOOK_URL` |
+| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la sección del libro |
+| Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
-Mientras falte una imagen, la web muestra un marco neutro con el nombre del archivo que hay que subir.
+Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, de `Portada_Kindle.jpg`) y `og.jpg` (1200 × 630, para redes). Si falta alguna, la web muestra un marco neutro en su lugar.
+
+Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del paquete «Pagina_de_recursos_para_subir_a_la_web.zip» de la carpeta «4 Para la web» (versión del 22 de octubre, 13:50). Si se cambia algún archivo, hay que actualizar también su tamaño en `libro/index.html`.
 
 ## Formulario
 
