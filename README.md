@@ -67,6 +67,8 @@ Automatización que hay que montar en el Sistema Advantys:
 
 El formulario de contacto no apunta a nadie a la newsletter: son consentimientos distintos.
 
+`/suscrito` (`suscrito.html`, sin indexar) es la página de «Ya estás dentro» a la que lleva el botón de los emails de la campaña de reactivación del Sistema Advantys: el clic en el enlace de activación «Alta consejo diario» pone las etiquetas `newsletter-consejo-diario` y `newsletter-desde-reactivacion`.
+
 ## Material del libro: dos puertas
 
 En `/libro` las descargas están bloqueadas hasta que el lector elige una de dos puertas:
