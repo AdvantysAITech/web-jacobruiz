@@ -190,7 +190,14 @@ h1, h2, h3 { margin: 0; font-weight: 600; color: var(--text); }
   box-shadow: var(--shadow);
 }
 @media (prefers-reduced-transparency: reduce) { .nav { background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; } }
-.brand { font-weight: 600; letter-spacing: -0.02em; text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
+.brand { display: inline-flex; align-items: center; color: var(--text); text-decoration: none; }
+/* Firma de Jacob: el SVG funciona como máscara y toma el color del texto, así se ve en tema claro y oscuro */
+.brand__sig {
+  display: block; height: 42px; aspect-ratio: 2982 / 1186; background: currentColor;
+  -webkit-mask: url(/assets/img/firma.svg) center / contain no-repeat;
+  mask: url(/assets/img/firma.svg) center / contain no-repeat;
+}
+.footer__brand .brand__sig { height: 60px; }
 .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
 .nav__links a {
   display: inline-block; padding: 8px 14px; border-radius: 999px;
@@ -758,3 +765,9 @@ html:not(.material-libre) .file__get { opacity: 0.35; }
 @media (max-width: 860px) { .gate__grid { grid-template-columns: 1fr; } }
 .gate__hint { grid-column: 1 / -1; margin: 0; padding: 14px 18px; border-radius: var(--radius-field); background: var(--accent-soft); color: var(--text); font-size: 0.95rem; }
 .gate__hint a { color: var(--text); font-weight: 600; text-underline-offset: 3px; }
+
+/* Foto de Jacob en círculo */
+.sale__photo .bezel, .why-photo .bezel { border-radius: 50%; }
+.sale__photo .bezel__core, .why-photo .bezel__core { border-radius: 50%; aspect-ratio: 1 / 1; }
+.sale__photo img, .why-photo img { object-position: 50% 18%; }
+.sale__photo figcaption { text-align: center; }
