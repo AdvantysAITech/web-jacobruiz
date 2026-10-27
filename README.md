@@ -6,15 +6,17 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 
 | Dirección | Archivo | Notas |
 | --- | --- | --- |
-| `/` | `index.html` | Portada: libro, accesos para lectores, sobre Jacob |
-| `/libro` | `libro/index.html` | Material del libro. Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas) |
-| `/diagnostico` | `diagnostico.html` | Diagnóstico de procesos (QR del libro) |
-| `/iso-42001` | `iso-42001.html` | Consultoría ISO/IEC 42001 y Reglamento de IA (QR del libro) |
+| `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
+| `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
+| `/libro` | `libro/index.html` | Material del libro (noindex). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas hasta que el lector se registra (`/api/material`) o contesta una pregunta del libro |
+| `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
+| `/iso-42001` | `iso-42001.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
+| `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
-| `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=contacto`, `diagnostico`, `iso-42001` o `conferencia` |
+| `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
 | `/privacidad`, `/aviso-legal`, `/cookies` | `*.html` | Textos legales |
 
-Norma de Amazon KDP: las direcciones impresas en el libro abren páginas informativas, nunca un formulario directamente.
+Norma de Amazon KDP (guía de enlaces de Kindle): un ebook no puede enlazar a formularios que piden datos del cliente, como el email. Por eso las direcciones del libro abren páginas informativas y el material de `/libro` se puede descargar también sin dar ningún dato, contestando una pregunta del libro. El ebook dice que el material es «gratis y sin registro»: esa puerta tiene que existir siempre.
 
 La cabecera y el pie están repetidos en cada página: si se cambian, hay que cambiarlos en todas.
 
@@ -22,7 +24,8 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 
 | Qué | Dónde |
 | --- | --- |
-| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la sección del libro |
+| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la tarjeta «El libro» (sustituye al botón «Muy pronto en Amazon») |
+| Automatización del Sistema Advantys: nuevas etiquetas `motivo-ai-act` y `motivo-charla` y campo `presupuesto_confirmado` | webhook de `CONTACTO_WEBHOOK_URL` |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
 Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, de `Portada_Kindle.jpg`) y `og.jpg` (1200 × 630, para redes). Si falta alguna, la web muestra un marco neutro en su lugar.
@@ -47,3 +50,28 @@ python3 -m http.server 8000
 ```
 
 Las direcciones sin `.html` (por ejemplo `/diagnostico`) solo funcionan en Vercel; en local abre `diagnostico.html`.
+
+## Newsletter «Un consejo al día»
+
+Hay tres formularios de alta: la sección de la portada (`#newsletter`), la página `/newsletter` y la franja del pie, que sale en todas las páginas. Los tres envían a `/api/newsletter` (`api/newsletter.js`), que valida y reenvía al webhook de `NEWSLETTER_WEBHOOK_URL` o, si esa variable no existe, al de `CONTACTO_WEBHOOK_URL`.
+
+Datos que llegan: `first_name` (opcional), `email`, `consentimiento_newsletter: "si"`, `fecha_consentimiento` (fecha y hora ISO), `pagina` y las etiquetas `origen-jacobruiz-es`, `newsletter-consejo-diario` y `newsletter-desde-<portada|newsletter|pie>`.
+
+Automatización que hay que montar en el Sistema Advantys:
+
+1. Disparador: entra un contacto con la etiqueta `newsletter-consejo-diario`.
+2. Enviar en el momento el email de bienvenida (lo prepara Jacob con Claude). El formulario le dice al usuario que lo acaba de recibir.
+3. El contacto entra en la lista «Newsletter diaria», que recibe un envío al día a la misma hora (propuesta: 7:30, hora de Madrid). Cada envío diario lo programa Jacob después de revisarlo.
+4. Todos los emails llevan enlace de baja de un clic y los datos del remitente. Quien se da de baja pierde la etiqueta y sale de la lista.
+5. Remitente: Jacob Ruiz, con un buzón de jacobruiz.es. El dominio necesita SPF, DKIM y DMARC configurados antes del primer envío, o los emails acabarán en spam.
+
+El formulario de contacto no apunta a nadie a la newsletter: son consentimientos distintos.
+
+## Material del libro: dos puertas
+
+En `/libro` las descargas están bloqueadas hasta que el lector elige una de dos puertas:
+
+1. Registro: nombre (opcional), email y aceptación de la privacidad. Va a `/api/material` (`api/material.js`), que reenvía al webhook con las etiquetas `origen-jacobruiz-es`, `lector-libro` y `material-libro`. Si el lector marca la casilla de la newsletter, se añaden `newsletter-consejo-diario` y `newsletter-desde-libro`, y entra en la automatización de la newsletter.
+2. Pregunta del libro: tres preguntas que solo se contestan con el libro (están en `assets/js/site.js`, bloque «Material del libro»). No se envía ningún dato.
+
+El desbloqueo se recuerda en el navegador del lector. Es una barrera de fricción, no de seguridad: los archivos siguen en `libro/descargas` y quien mire el código puede llegar a ellos.

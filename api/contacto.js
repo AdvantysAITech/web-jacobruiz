@@ -8,10 +8,13 @@
 */
 
 const MOTIVOS = {
-  contacto: "Contacto general",
-  diagnostico: "Diagnóstico de procesos",
-  "iso-42001": "Consultoría ISO/IEC 42001",
-  conferencia: "Conferencia o formación"
+  "ai-act": "Cumplir el AI Act (1.990 € + IVA)",
+  charla: "Charla sobre el Reglamento de IA (900 € + IVA)",
+  "iso-42001": "Certificación ISO/IEC 42001",
+  contacto: "Otro asunto",
+  // Antiguos, por si llega algún enlace viejo
+  diagnostico: "Diagnóstico de procesos (derivar a Advantys AI)",
+  conferencia: "Charla sobre el Reglamento de IA (900 € + IVA)"
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -71,6 +74,7 @@ module.exports = async function handler(req, res) {
     fecha_consentimiento: new Date().toISOString().slice(0, 10),
     tags: ["origen-jacobruiz-es", "motivo-" + motivoClave].join(","),
     pagina: clean(body.pagina, 200),
+    presupuesto_confirmado: body.presupuesto === true ? "si" : "no",
     origen: "web-jacobruiz-es"
   };
 
