@@ -11,6 +11,9 @@
   var qs = new URLSearchParams(location.search);
   var traficoUrl = String(qs.get("origen_trafico") || qs.get("utm_source") || "")
     .toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);
+  // Instagram añade por su cuenta utm_source=ig a los enlaces del perfil: lo unificamos
+  var ALIAS_TRAFICO = { ig: "instagram", fb: "facebook", lnkd: "linkedin", "linkedin-com": "linkedin" };
+  if (ALIAS_TRAFICO[traficoUrl]) traficoUrl = ALIAS_TRAFICO[traficoUrl];
   var trafico = "";
   try {
     if (traficoUrl) localStorage.setItem(CLAVE_TRAFICO, traficoUrl);
