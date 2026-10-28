@@ -19,6 +19,10 @@ const MOTIVOS = {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+function traficoSlug(v) {
+  return String(v == null ? "" : v).toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);
+}
+
 function clean(v, max) {
   return String(v == null ? "" : v).trim().slice(0, max || 200);
 }
@@ -63,6 +67,8 @@ module.exports = async function handler(req, res) {
   }
 
   const name = splitName(nombre);
+  const trafico = traficoSlug(body.trafico);
+
   const payload = {
     first_name: name.first,
     last_name: name.last,
@@ -72,10 +78,11 @@ module.exports = async function handler(req, res) {
     motivo: motivo,
     mensaje: mensaje,
     fecha_consentimiento: new Date().toISOString().slice(0, 10),
-    tags: ["origen-jacobruiz-es", "motivo-" + motivoClave].join(","),
+    tags: ["origen-jacobruiz-es", "motivo-" + motivoClave].concat(trafico ? ["trafico-" + trafico] : []).join(","),
     pagina: clean(body.pagina, 200),
     presupuesto_confirmado: body.presupuesto === true ? "si" : "no",
-    origen: "web-jacobruiz-es"
+    origen: "web-jacobruiz-es",
+    origen_trafico: trafico || "directo"
   };
 
   try {

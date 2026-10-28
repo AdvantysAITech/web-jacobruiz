@@ -11,6 +11,10 @@
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const LUGARES = ["portada", "newsletter", "pie", "charlas", "ai-act", "libro"];
 
+function traficoSlug(v) {
+  return String(v == null ? "" : v).toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);
+}
+
 function clean(v, max) {
   return String(v == null ? "" : v).trim().slice(0, max || 200);
 }
@@ -46,6 +50,8 @@ module.exports = async function handler(req, res) {
     return res.status(422).json({ ok: false, error: "invalid" });
   }
 
+  const trafico = traficoSlug(body.trafico);
+
   const payload = {
     first_name: nombre,
     full_name: nombre,
@@ -53,9 +59,10 @@ module.exports = async function handler(req, res) {
     motivo: "Alta en la newsletter «Un consejo al día»",
     consentimiento_newsletter: "si",
     fecha_consentimiento: new Date().toISOString(),
-    tags: ["origen-jacobruiz-es", "newsletter-consejo-diario", "newsletter-desde-" + lugar].join(","),
+    tags: ["origen-jacobruiz-es", "newsletter-consejo-diario", "newsletter-desde-" + lugar].concat(trafico ? ["trafico-" + trafico] : []).join(","),
     pagina: clean(body.pagina, 200),
-    origen: "web-jacobruiz-es"
+    origen: "web-jacobruiz-es",
+    origen_trafico: trafico || "directo"
   };
 
   try {

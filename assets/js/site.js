@@ -4,6 +4,19 @@
   var doc = document.documentElement;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Origen del tráfico (?origen_trafico= o ?utm_source=) ----------
+     Se guarda en el navegador para que, si la persona navega por la web antes de
+     apuntarse, el alta siga llegando al CRM con su origen (p. ej. «instagram»). */
+  var CLAVE_TRAFICO = "jr_origen_trafico";
+  var qs = new URLSearchParams(location.search);
+  var traficoUrl = String(qs.get("origen_trafico") || qs.get("utm_source") || "")
+    .toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);
+  var trafico = "";
+  try {
+    if (traficoUrl) localStorage.setItem(CLAVE_TRAFICO, traficoUrl);
+    trafico = traficoUrl || localStorage.getItem(CLAVE_TRAFICO) || "";
+  } catch (e) { trafico = traficoUrl; }
+
   /* ---------- Imágenes aún no subidas: se muestra el hueco con su descripción ---------- */
   document.querySelectorAll(".media img").forEach(function (img) {
     function marcar() { img.parentElement.classList.add("is-missing"); }
@@ -79,7 +92,7 @@
       else if (fd.get("acepta") !== "on") msg = "Marca la casilla para que pueda escribirte.";
       err.textContent = msg;
       if (msg) { (msg.indexOf("email") > -1 ? nf.querySelector("[name=email]") : nf.querySelector("[name=acepta]")).focus(); return; }
-      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, acepta: true, lugar: nf.getAttribute("data-lugar") || "web", web: "", pagina: location.pathname };
+      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, acepta: true, lugar: nf.getAttribute("data-lugar") || "web", web: "", pagina: location.pathname, trafico: trafico };
       btn.setAttribute("aria-busy", "true");
       var local = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
       var envio = local
@@ -151,7 +164,7 @@
       else if (fd.get("acepta_privacidad") !== "on") msg = "Marca la casilla de la política de privacidad para continuar.";
       gErr.textContent = msg;
       if (msg) return;
-      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, newsletter: fd.get("newsletter") === "on", acepta_privacidad: true, web: "", pagina: location.pathname };
+      var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, newsletter: fd.get("newsletter") === "on", acepta_privacidad: true, web: "", pagina: location.pathname, trafico: trafico };
       gBtn.setAttribute("aria-busy", "true");
       var local = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
       var envio = local
@@ -255,7 +268,8 @@
       acepta_privacidad: fd.get("acepta_privacidad") === "on",
       presupuesto: fd.get("presupuesto") === "on",
       web: "",
-      pagina: location.pathname + location.search
+      pagina: location.pathname + location.search,
+      trafico: trafico
     };
 
     boton.setAttribute("aria-busy", "true");

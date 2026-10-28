@@ -31,6 +31,11 @@
       "source": "/consejo",
       "destination": "/newsletter",
       "permanent": false
+    },
+    {
+      "source": "/ig",
+      "destination": "/newsletter?origen_trafico=instagram",
+      "permanent": false
     }
   ],
   "headers": [
