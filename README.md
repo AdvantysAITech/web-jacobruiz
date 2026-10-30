@@ -71,7 +71,7 @@ El formulario de contacto no apunta a nadie a la newsletter: son consentimientos
 
 `/baja` (`baja.html`, sin indexar) es la baja de la newsletter con confirmación. El enlace de activación «Baja email» del Sistema Advantys lleva a `https://jacobruiz.es/baja?email={{contact.email}}`. La página muestra el formulario de HighLevel «Baja newsletter consejo diario» con el email ya escrito y un botón «Confirmar la baja». La baja la hace el flujo «Newsletter · Baja por enlace» al recibir ese formulario, no el clic en el enlace: así los antivirus de empresa, que pulsan todos los enlaces de un email, ya no dan de baja a nadie.
 
-Enlaces cortos a la newsletter con origen: `/ig` (Instagram) y `/lk` (LinkedIn) llevan a `/newsletter?origen_trafico=…`, y el alta llega al CRM con ese origen. `/consejo` lleva a `/newsletter` sin origen. La vista previa de `/newsletter` al compartir el enlace es `assets/img/og-newsletter.jpg`.
+Enlaces cortos a la newsletter con origen: `/ig` (Instagram) y `/lk` (LinkedIn) y `/tarjeta` (QR de la tarjeta de visita) llevan a `/newsletter?origen_trafico=…`, y el alta llega al CRM con ese origen. `/consejo` lleva a `/newsletter` sin origen. La vista previa de `/newsletter` al compartir el enlace es `assets/img/og-newsletter.jpg`.
 
 ## Material del libro: dos puertas
 
