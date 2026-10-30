@@ -118,6 +118,15 @@
           "value": "no-store"
         }
       ]
+    },
+    {
+      "source": "/assets/img/social/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }
