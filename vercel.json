@@ -41,6 +41,16 @@
       "source": "/(IG|Ig|iG)",
       "destination": "/newsletter?origen_trafico=instagram",
       "permanent": false
+    },
+    {
+      "source": "/lk",
+      "destination": "/newsletter?origen_trafico=linkedin",
+      "permanent": false
+    },
+    {
+      "source": "/(LK|Lk|lK)",
+      "destination": "/newsletter?origen_trafico=linkedin",
+      "permanent": false
     }
   ],
   "headers": [
