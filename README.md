@@ -69,6 +69,8 @@ El formulario de contacto no apunta a nadie a la newsletter: son consentimientos
 
 `/suscrito` (`suscrito.html`, sin indexar) es la página de «Ya estás dentro» a la que lleva el botón de los emails de la campaña de reactivación del Sistema Advantys: el clic en el enlace de activación «Alta consejo diario» pone las etiquetas `newsletter-consejo-diario` y `newsletter-desde-reactivacion`.
 
+`/baja` (`baja.html`, sin indexar) es la baja de la newsletter con confirmación. El enlace de activación «Baja email» del Sistema Advantys lleva a `https://jacobruiz.es/baja?email={{contact.email}}`. La página muestra el formulario de HighLevel «Baja newsletter consejo diario» con el email ya escrito y un botón «Confirmar la baja». La baja la hace el flujo «Newsletter · Baja por enlace» al recibir ese formulario, no el clic en el enlace: así los antivirus de empresa, que pulsan todos los enlaces de un email, ya no dan de baja a nadie.
+
 ## Material del libro: dos puertas
 
 En `/libro` las descargas están bloqueadas hasta que el lector elige una de dos puertas:
