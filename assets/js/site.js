@@ -14,6 +14,15 @@
   // Instagram añade por su cuenta utm_source=ig a los enlaces del perfil: lo unificamos
   var ALIAS_TRAFICO = { ig: "instagram", fb: "facebook", lnkd: "linkedin", "linkedin-com": "linkedin" };
   if (ALIAS_TRAFICO[traficoUrl]) traficoUrl = ALIAS_TRAFICO[traficoUrl];
+  // Sin parámetro: se deduce de la web de procedencia (p. ej. el enlace «Destacado» de LinkedIn,
+  // que LinkedIn guarda sin el ?origen_trafico)
+  if (!traficoUrl && document.referrer) {
+    try {
+      var refHost = new URL(document.referrer).hostname.replace(/^www\./, "");
+      var REF_TRAFICO = { "linkedin.com": "linkedin", "lnkd.in": "linkedin", "instagram.com": "instagram", "l.instagram.com": "instagram", "facebook.com": "facebook", "l.facebook.com": "facebook", "m.facebook.com": "facebook", "t.co": "x", "x.com": "x" };
+      if (REF_TRAFICO[refHost]) traficoUrl = REF_TRAFICO[refHost];
+    } catch (e) {}
+  }
   var trafico = "";
   try {
     if (traficoUrl) localStorage.setItem(CLAVE_TRAFICO, traficoUrl);
