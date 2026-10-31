@@ -1,0 +1,22 @@
+# Jacob Ruiz
+
+> Consultor en el Reglamento europeo de inteligencia artificial (AI Act) e ISO/IEC 42001. Ayuda a las empresas que usan IA de terceros a cumplir el Reglamento a precio cerrado. Autor de «Vende más y trabaja menos». Web en español, para empresas de España y Andorra.
+
+## Servicios
+- [Cumplir el AI Act](https://jacobruiz.es/cumplimiento-ai-act): paquete de cumplimiento del Reglamento europeo de IA para empresas que usan IA de otros. 1.990 € + IVA, precio cerrado.
+- [Charla sobre el Reglamento europeo de IA](https://jacobruiz.es/charlas): de 60 a 90 minutos para el equipo. 900 € + IVA.
+- [ISO/IEC 42001](https://jacobruiz.es/iso-42001): diagnóstico de brecha, implantación, auditoría interna y acompañamiento a la certificación. Precio cerrado por escrito antes de empezar.
+
+## Guía del AI Act
+- [AI Act para pymes](https://jacobruiz.es/guia/ai-act-pymes)
+- [Calendario del AI Act tras el Ómnibus Digital](https://jacobruiz.es/guia/calendario-ai-act)
+- [Alfabetización en IA, artículo 4](https://jacobruiz.es/guia/alfabetizacion-ia-articulo-4)
+- [Obligaciones de transparencia, artículo 50](https://jacobruiz.es/guia/transparencia-ia-chatbots)
+- [Inventario de sistemas de IA](https://jacobruiz.es/guia/inventario-sistemas-ia)
+- [Política de uso de la IA en la empresa](https://jacobruiz.es/guia/politica-uso-ia-empresa)
+- [ISO/IEC 42001 y AI Act](https://jacobruiz.es/guia/iso-42001-vs-ai-act)
+- [AESIA y sanciones](https://jacobruiz.es/guia/aesia-sanciones)
+
+## Contacto
+- [Contacto](https://jacobruiz.es/contacto) · contacto@jacobruiz.es
+- [Newsletter diaria «Un consejo al día»](https://jacobruiz.es/newsletter)

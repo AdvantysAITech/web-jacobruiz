@@ -10,7 +10,9 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
 | `/libro` | `libro/index.html` | Material del libro (noindex). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas hasta que el lector se registra (`/api/material`) o contesta una pregunta del libro |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
-| `/iso-42001` | `iso-42001.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA, y precio a medida de la ISO/IEC 42001 (QR del libro; también `/ai-act`) |
+| `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
+| `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 1.990 € y al capítulo 14, no quitarlo) |
+| `/guia` | `guia/index.html` | Guía del AI Act: índice de las 8 guías de `guia/*.html` (contenido para SEO) |
 | `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
@@ -19,6 +21,15 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 Norma de Amazon KDP (guía de enlaces de Kindle): un ebook no puede enlazar a formularios que piden datos del cliente, como el email. Por eso las direcciones del libro abren páginas informativas y el material de `/libro` se puede descargar también sin dar ningún dato, contestando una pregunta del libro. El ebook dice que el material es «gratis y sin registro»: esa puerta tiene que existir siempre.
 
 La cabecera y el pie están repetidos en cada página: si se cambian, hay que cambiarlos en todas.
+
+## SEO
+
+- Cada página comercial trabaja un grupo de búsquedas: `/cumplimiento-ai-act` (consultoría AI Act), `/iso-42001` (implantación y auditoría ISO 42001), `/charlas` (charla y formación AI Act). Las guías de `/guia` cubren las preguntas y enlazan a esas tres.
+- Datos estructurados (schema.org en JSON-LD) en portada, servicios, charlas y guías: Person, ProfessionalService, Service con precio, Article, BreadcrumbList y FAQPage. Si cambias un precio o una pregunta frecuente, cámbialo también en su bloque `application/ld+json`.
+- `sitemap.xml` solo lleva páginas indexables. Al publicar una guía nueva: añádela al sitemap, al índice de `/guia`, a `llms.txt` y envíala en Search Console.
+- Legales, `/libro`, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.
+- Search Console: propiedad `https://jacobruiz.es/` en la cuenta contacto@jacobruiz.es, verificada por DNS y por la etiqueta `google-site-verification` de `index.html` (no quitarla).
+- Las guías dicen «Actualizado el …»: al cambiar una, actualiza la fecha visible, `dateModified` y el `lastmod` del sitemap.
 
 ## Pendiente
 

@@ -19,8 +19,8 @@
     },
     {
       "source": "/ai-act",
-      "destination": "/iso-42001",
-      "permanent": false
+      "destination": "/cumplimiento-ai-act",
+      "permanent": true
     },
     {
       "source": "/charla",
@@ -56,6 +56,31 @@
       "source": "/tarjeta",
       "destination": "/newsletter?origen_trafico=tarjeta",
       "permanent": false
+    },
+    {
+      "source": "/cumplir-ai-act",
+      "destination": "/cumplimiento-ai-act",
+      "permanent": true
+    },
+    {
+      "source": "/reglamento-ia",
+      "destination": "/cumplimiento-ai-act",
+      "permanent": true
+    },
+    {
+      "source": "/iso42001",
+      "destination": "/iso-42001",
+      "permanent": true
+    },
+    {
+      "source": "/guias",
+      "destination": "/guia",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/guia",
+      "permanent": true
     }
   ],
   "headers": [
@@ -130,6 +155,15 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }

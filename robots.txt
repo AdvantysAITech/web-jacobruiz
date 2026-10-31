@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /formulario
+Disallow: /api/
 
 Sitemap: https://jacobruiz.es/sitemap.xml
