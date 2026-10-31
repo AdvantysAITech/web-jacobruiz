@@ -29,6 +29,7 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 - `sitemap.xml` solo lleva páginas indexables. Al publicar una guía nueva: añádela al sitemap, al índice de `/guia`, a `llms.txt` y envíala en Search Console.
 - Legales, `/libro`, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.
 - Search Console: propiedad `https://jacobruiz.es/` en la cuenta contacto@jacobruiz.es, verificada por DNS y por la etiqueta `google-site-verification` de `index.html` (no quitarla).
+- IndexNow (Bing, Yandex, Seznam, Naver): clave en `/6944e9709928970ea3dd2589c6448adb.txt`. Al publicar o cambiar una página, se avisa con `https://api.indexnow.org/indexnow?url=URL&key=6944e9709928970ea3dd2589c6448adb`.
 - Las guías dicen «Actualizado el …»: al cambiar una, actualiza la fecha visible, `dateModified` y el `lastmod` del sitemap.
 
 ## Pendiente
