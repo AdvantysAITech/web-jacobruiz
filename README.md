@@ -42,7 +42,7 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 | Automatización del Sistema Advantys: nuevas etiquetas `motivo-ai-act` y `motivo-charla` y campo `presupuesto_confirmado` | webhook de `CONTACTO_WEBHOOK_URL` |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
-Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, de `Portada_Kindle.jpg`) y `og.jpg` (1200 × 630, para redes). Si falta alguna, la web muestra un marco neutro en su lugar.
+Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, portada definitiva con el sello rojo «Incluye curso de IA gratis», generada con el mismo sello de `maqueta/sello_portada_rojo.py`) y `og.jpg` (1200 × 630, para redes, con la portada definitiva). Si falta alguna, la web muestra un marco neutro en su lugar.
 
 Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del paquete «Pagina_de_recursos_para_subir_a_la_web.zip» de la carpeta «4 Para la web» (versión del 22 de octubre, 13:50). Si se cambia algún archivo, hay que actualizar también su tamaño en `libro/index.html`.
 
