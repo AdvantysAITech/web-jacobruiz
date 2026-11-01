@@ -8,6 +8,11 @@
       "permanent": false
     },
     {
+      "source": "/libro/descargas/:archivo*",
+      "destination": "/libro?material=bloqueado#acceso",
+      "permanent": false
+    },
+    {
       "source": "/poltica-de-privacidad-9381",
       "destination": "/privacidad",
       "permanent": true
@@ -172,5 +177,16 @@
         }
       ]
     }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/descargas/:archivo",
+      "destination": "/api/descarga?f=:archivo"
+    }
+  ],
+  "functions": {
+    "api/descarga.js": {
+      "includeFiles": "libro/descargas/**"
+    }
+  }
 }

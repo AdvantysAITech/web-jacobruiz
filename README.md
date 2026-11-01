@@ -8,7 +8,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | --- | --- | --- |
 | `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
-| `/libro` | `libro/index.html` | Material del libro (indexable desde el 1 de noviembre de 2026: es la página que sale en Google al buscar el título; arriba lleva el bloque «Compra mi libro»). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas hasta que el lector se registra (`/api/material`) o contesta una pregunta del libro |
+| `/libro` | `libro/index.html` | Material del libro (indexable desde el 1 de noviembre de 2026: es la página que sale en Google al buscar el título; arriba lleva el bloque «Compra mi libro»). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas de verdad: el lector se registra (`/api/material`) o contesta una pregunta del libro (`/api/pregunta`, respuestas solo en el servidor) y recibe una cookie firmada; los archivos se bajan por `/descargas/NOMBRE` (`/api/descarga`), que sin esa cookie devuelve a `/libro`. La ruta directa `/libro/descargas/...` está redirigida |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
 | `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
 | `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 1.990 € y al capítulo 14, no quitarlo) |
@@ -43,6 +43,8 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 
 Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, portada definitiva con el sello rojo «Incluye curso de IA gratis», generada con el mismo sello de `maqueta/sello_portada_rojo.py`) y `og.jpg` (1200 × 630, para redes, con la portada definitiva). Si falta alguna, la web muestra un marco neutro en su lugar.
+
+Acceso al material (`api/_acceso.js`): cookie `jr_material` firmada con `MATERIAL_SECRET` si existe en Vercel o, si no, con una clave derivada de `CONTACTO_WEBHOOK_URL`; dura un año. Si se cambian las preguntas del libro, cambiarlas en `api/_acceso.js` (con sus respuestas) y el texto en `assets/js/site.js`, en el mismo orden.
 
 Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del paquete «Pagina_de_recursos_para_subir_a_la_web.zip» de la carpeta «4 Para la web» (versión del 22 de octubre, 13:50). Si se cambia algún archivo, hay que actualizar también su tamaño en `libro/index.html`.
 

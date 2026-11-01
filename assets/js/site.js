@@ -121,10 +121,13 @@
     });
   });
 
-  /* ---------- Material del libro: registro o pregunta del libro ---------- */
+  /* ---------- Material del libro: registro o pregunta del libro ----------
+     El acceso lo decide el servidor: /api/material (email) o /api/pregunta (respuesta del libro)
+     ponen una cookie firmada y /descargas/... solo entrega los archivos con ella. Aquí solo se
+     enseña u oculta la puerta. Las respuestas de las preguntas están en api/_acceso.js. */
   var gate = document.querySelector("[data-gate]");
   if (gate) {
-    var CLAVE = "jr_material_libro";
+    var localG = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
     var okMsg = document.querySelector("[data-gate-ok]");
     // Capítulo al que volver después de desbloquear (el del QR o el del enlace pulsado)
     var destino = /^#(capitulo-\d+|anexos)$/.test(location.hash) ? location.hash.slice(1) : null;
@@ -135,7 +138,6 @@
       gate.hidden = true;
       okMsg.hidden = false;
       if (aviso) aviso.remove();
-      try { localStorage.setItem(CLAVE, "1"); } catch (e) {}
       if (!foco) return;
       var vuelta = destino && document.getElementById(destino);
       if (vuelta) { vuelta.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); vuelta.setAttribute("tabindex", "-1"); vuelta.focus({ preventScroll: true }); }
@@ -149,7 +151,7 @@
       });
     });
     // Si llega desde el QR de un capítulo con el material bloqueado, se lo decimos ahí mismo
-    if (destino && !doc.classList.contains("material-libre")) {
+    if (destino) {
       var capDestino = document.getElementById(destino);
       if (capDestino) {
         aviso = document.createElement("p");
@@ -158,9 +160,13 @@
         capDestino.insertBefore(aviso, capDestino.firstChild);
       }
     }
-    var guardado = false;
-    try { guardado = localStorage.getItem(CLAVE) === "1"; } catch (e) {}
-    if (guardado) desbloquear(false);
+    // ¿Ya lo desbloqueó antes en este navegador? Lo dice el servidor (cookie)
+    if (!localG) {
+      fetch("/api/descarga?estado=1", { credentials: "same-origin", cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : { libre: false }; })
+        .then(function (d) { if (d && d.libre) desbloquear(false); })
+        .catch(function () {});
+    }
 
     // Puerta 1: registro
     var gf = gate.querySelector("[data-gate-form]");
@@ -178,38 +184,45 @@
       if (msg) return;
       var datos = { nombre: String(fd.get("nombre") || "").trim(), email: email, newsletter: fd.get("newsletter") === "on", acepta_privacidad: true, web: "", pagina: location.pathname, trafico: trafico };
       gBtn.setAttribute("aria-busy", "true");
-      var local = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:";
-      var envio = local
+      var envio = localG
         ? new Promise(function (r) { console.info("[jacobruiz.es] Modo local, registro no enviado:", datos); setTimeout(r, 600); })
-        : fetch("/api/material", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
+        : fetch("/api/material", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) })
             .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); });
       envio.then(function () { desbloquear(true); })
         .catch(function () { gErr.textContent = "No he podido registrarte. Inténtalo de nuevo o contesta la pregunta del libro."; })
         .then(function () { gBtn.removeAttribute("aria-busy"); });
     });
 
-    // Puerta 2: pregunta del libro
+    // Puerta 2: pregunta del libro (la respuesta se comprueba en el servidor)
     var PREGUNTAS = [
-      { q: "En la conclusión, cada flujo que automatizas es «un ___ más». ¿Qué palabra falta?", a: ["ladrillo"] },
-      { q: "Según el capítulo 14, ¿cuántos controles incluye el anexo de la norma ISO/IEC 42001?", a: ["38", "treinta y ocho"] },
-      { q: "Según el capítulo 14, ¿en cuántas áreas se agrupan los controles de la norma ISO/IEC 42001?", a: ["9", "nueve"] }
+      "En la conclusión, cada flujo que automatizas es «un ___ más». ¿Qué palabra falta?",
+      "Según el capítulo 14, ¿cuántos controles incluye el anexo de la norma ISO/IEC 42001?",
+      "Según el capítulo 14, ¿en cuántas áreas se agrupan los controles de la norma ISO/IEC 42001?"
     ];
     var gq = gate.querySelector("[data-gate-quiz]");
     var qLabel = gq.querySelector("[data-quiz-q]");
     var qInput = gq.querySelector("[name=respuesta]");
     var qErr = gq.querySelector("[data-error]");
+    var qBtn = gq.querySelector("[type=submit]");
     var actual = Math.floor(Math.random() * PREGUNTAS.length);
-    function mostrar() { qLabel.textContent = PREGUNTAS[actual].q; qInput.value = ""; qErr.textContent = ""; }
-    function normal(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim(); }
+    function mostrar() { qLabel.textContent = PREGUNTAS[actual]; qInput.value = ""; qErr.textContent = ""; }
     mostrar();
     gq.querySelector("[data-quiz-next]").addEventListener("click", function () { actual = (actual + 1) % PREGUNTAS.length; mostrar(); qInput.focus(); });
     gq.addEventListener("submit", function (e) {
       e.preventDefault();
-      var r = normal(qInput.value);
-      if (!r) { qErr.textContent = "Escribe la respuesta."; return; }
-      var bien = PREGUNTAS[actual].a.some(function (x) { return normal(x) === r; });
-      if (bien) desbloquear(true);
-      else qErr.textContent = "Esa no es. Búscalo en el libro y vuelve a probar.";
+      var respuesta = qInput.value.trim();
+      if (!respuesta) { qErr.textContent = "Escribe la respuesta."; return; }
+      qBtn.setAttribute("aria-busy", "true");
+      var envio = localG
+        ? new Promise(function (r) { console.info("[jacobruiz.es] Modo local, respuesta no comprobada:", respuesta); setTimeout(function () { r({ ok: true }); }, 400); })
+        : fetch("/api/pregunta", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: actual, respuesta: respuesta }) })
+            .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+      envio.then(function (d) {
+        if (d && d.ok) desbloquear(true);
+        else qErr.textContent = "Esa no es. Búscalo en el libro y vuelve a probar.";
+      }).catch(function () {
+        qErr.textContent = "No he podido comprobarla. Inténtalo de nuevo en un momento.";
+      }).then(function () { qBtn.removeAttribute("aria-busy"); });
     });
   }
 

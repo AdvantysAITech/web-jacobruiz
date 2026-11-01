@@ -7,7 +7,11 @@
     marca la casilla de la newsletter se añade newsletter-consejo-diario (alta en la
     newsletter diaria, con su propio consentimiento).
   - El campo trampa «web» descarta envíos de bots sin avisarles.
+  - Si el registro llega bien al Sistema Advantys, pone la cookie de acceso al material
+    (api/_acceso.js) y con ella /api/descarga entrega los archivos.
 */
+
+const { crearCookie } = require("./_acceso");
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -76,6 +80,9 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify(payload)
     });
     if (!r.ok) throw new Error("webhook " + r.status);
+    const cookie = crearCookie("email");
+    if (cookie) res.setHeader("Set-Cookie", cookie);
+    res.setHeader("Cache-Control", "no-store");
     return res.status(200).json({ ok: true });
   } catch (e) {
     console.error("[material]", e.message);
