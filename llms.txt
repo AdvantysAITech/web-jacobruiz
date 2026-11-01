@@ -7,6 +7,9 @@
 - [Charla sobre el Reglamento europeo de IA](https://jacobruiz.es/charlas): de 60 a 90 minutos para el equipo. 900 € + IVA.
 - [ISO/IEC 42001](https://jacobruiz.es/iso-42001): diagnóstico de brecha, implantación, auditoría interna y acompañamiento a la certificación. Precio cerrado por escrito antes de empezar.
 
+## El libro
+- [Vende más y trabaja menos](https://jacobruiz.es/libro): cómo automatizar el marketing, las ventas y la posventa de una pyme con IA, con un plan de 90 días. Material gratuito para lectores.
+
 ## Guía del AI Act
 - [AI Act para pymes](https://jacobruiz.es/guia/ai-act-pymes)
 - [Calendario del AI Act tras el Ómnibus Digital](https://jacobruiz.es/guia/calendario-ai-act)

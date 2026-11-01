@@ -8,7 +8,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | --- | --- | --- |
 | `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
-| `/libro` | `libro/index.html` | Material del libro (noindex). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas hasta que el lector se registra (`/api/material`) o contesta una pregunta del libro |
+| `/libro` | `libro/index.html` | Material del libro (indexable desde el 1 de noviembre de 2026: es la página que sale en Google al buscar el título; arriba lleva el bloque «Compra mi libro»). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas hasta que el lector se registra (`/api/material`) o contesta una pregunta del libro |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
 | `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
 | `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 1.990 € y al capítulo 14, no quitarlo) |
@@ -29,7 +29,7 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 - Cada página comercial trabaja un grupo de búsquedas: `/cumplimiento-ai-act` (consultoría AI Act), `/iso-42001` (implantación y auditoría ISO 42001), `/charlas` (charla y formación AI Act). Las guías de `/guia` cubren las preguntas y enlazan a esas tres.
 - Datos estructurados (schema.org en JSON-LD) en portada, servicios, charlas y guías: Person, ProfessionalService, Service con precio, Article, BreadcrumbList y FAQPage. Si cambias un precio o una pregunta frecuente, cámbialo también en su bloque `application/ld+json`.
 - `sitemap.xml` solo lleva páginas indexables. Al publicar una guía nueva: añádela al sitemap, al índice de `/guia`, a `llms.txt` y envíala en Search Console.
-- Legales, `/libro`, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.
+- Legales, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.
 - Search Console: propiedad `https://jacobruiz.es/` en la cuenta contacto@jacobruiz.es, verificada por DNS y por la etiqueta `google-site-verification` de `index.html` (no quitarla).
 - IndexNow (Bing, Yandex, Seznam, Naver): clave en `/6944e9709928970ea3dd2589c6448adb.txt`. Al publicar o cambiar una página, se avisa con `https://api.indexnow.org/indexnow?url=URL&key=6944e9709928970ea3dd2589c6448adb`.
 - Las guías dicen «Actualizado el …»: al cambiar una, actualiza la fecha visible, `dateModified` y el `lastmod` del sitemap.
@@ -45,6 +45,10 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1000 × 1500, de `Portada_Kindle.jpg`) y `og.jpg` (1200 × 630, para redes). Si falta alguna, la web muestra un marco neutro en su lugar.
 
 Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del paquete «Pagina_de_recursos_para_subir_a_la_web.zip» de la carpeta «4 Para la web» (versión del 22 de octubre, 13:50). Si se cambia algún archivo, hay que actualizar también su tamaño en `libro/index.html`.
+
+## Favicon
+
+Monograma JR hecho con los trazos de la firma (`assets/img/firma.svg`), negro sobre el mostaza del libro. Archivos: `favicon.ico` (16, 32 y 48 px, el que pide Google), `favicon.svg`, `apple-touch-icon.png` (180 px), `assets/img/icon-96.png`, `icon-192.png`, `icon-512.png` y `site.webmanifest`. Las etiquetas están en el `<head>` de todas las páginas. Google tarda días o semanas en mostrar un favicon nuevo en los resultados.
 
 ## Formulario
 
