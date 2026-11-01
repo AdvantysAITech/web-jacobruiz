@@ -3,7 +3,7 @@
 > Consultor en el Reglamento europeo de inteligencia artificial (AI Act) e ISO/IEC 42001. Ayuda a las empresas que usan IA de terceros a cumplir el Reglamento a precio cerrado. Autor de «Vende más y trabaja menos». Web en español, para empresas de España y Andorra.
 
 ## Servicios
-- [Cumplir el AI Act](https://jacobruiz.es/cumplimiento-ai-act): paquete de cumplimiento del Reglamento europeo de IA para empresas que usan IA de otros. 1.990 € + IVA, precio cerrado.
+- [Cumplir el AI Act](https://jacobruiz.es/cumplimiento-ai-act): paquete de cumplimiento del Reglamento europeo de IA para empresas que usan IA de otros. 3.900 € + IVA, precio cerrado.
 - [Charla sobre el Reglamento europeo de IA](https://jacobruiz.es/charlas): de 60 a 90 minutos para el equipo. 900 € + IVA.
 - [ISO/IEC 42001](https://jacobruiz.es/iso-42001): diagnóstico de brecha, implantación, auditoría interna y acompañamiento a la certificación. Precio cerrado por escrito antes de empezar.
 

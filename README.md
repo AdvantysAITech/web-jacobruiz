@@ -6,12 +6,12 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 
 | Dirección | Archivo | Notas |
 | --- | --- | --- |
-| `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 1.990 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
+| `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 3.900 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
 | `/libro` | `libro/index.html` | Material del libro (indexable desde el 1 de noviembre de 2026: es la página que sale en Google al buscar el título; arriba lleva el bloque «Compra mi libro»). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas de verdad: el lector se registra (`/api/material`) o contesta una pregunta del libro (`/api/pregunta`, respuestas solo en el servidor) y recibe una cookie firmada; los archivos se bajan por `/descargas/NOMBRE` (`/api/descarga`), que sin esa cookie devuelve a `/libro`. La ruta directa `/libro/descargas/...` está redirigida |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
-| `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 1.990 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
-| `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 1.990 € y al capítulo 14, no quitarlo) |
+| `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 3.900 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
+| `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 3.900 € y al capítulo 14, no quitarlo) |
 | `/guia` | `guia/index.html` | Guía del AI Act: índice de las 8 guías de `guia/*.html` (contenido para SEO) |
 | `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |

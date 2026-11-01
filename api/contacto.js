@@ -8,7 +8,7 @@
 */
 
 const MOTIVOS = {
-  "ai-act": "Cumplir el AI Act (1.990 € + IVA)",
+  "ai-act": "Cumplir el AI Act (3.900 € + IVA)",
   charla: "Charla sobre el Reglamento de IA (900 € + IVA)",
   "iso-42001": "Certificación ISO/IEC 42001",
   contacto: "Otro asunto",
