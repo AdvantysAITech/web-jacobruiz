@@ -22,6 +22,8 @@ Norma de Amazon KDP (guía de enlaces de Kindle): un ebook no puede enlazar a fo
 
 La cabecera y el pie están repetidos en cada página: si se cambian, hay que cambiarlos en todas.
 
+Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (también en móvil), el primero del menú del móvil, en el pie y en un bloque destacado arriba de `/libro`. Todos enlazan a `/comprar-libro`, una redirección de `vercel.json`: el enlace de Amazon se cambia en un solo sitio.
+
 ## SEO
 
 - Cada página comercial trabaja un grupo de búsquedas: `/cumplimiento-ai-act` (consultoría AI Act), `/iso-42001` (implantación y auditoría ISO 42001), `/charlas` (charla y formación AI Act). Las guías de `/guia` cubren las preguntas y enlazan a esas tres.
@@ -36,7 +38,7 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 
 | Qué | Dónde |
 | --- | --- |
-| Enlace a Amazon cuando el libro esté publicado | `index.html`, comentario en la tarjeta «El libro» (sustituye al botón «Muy pronto en Amazon») |
+| Enlace a Amazon cuando el libro esté publicado | 1) `vercel.json`: cambiar el destino de la redirección `/comprar-libro` (ahora `/#libro`) por la URL de Amazon. Todos los botones «Compra mi libro» apuntan ahí. 2) `index.html`: cambiar el «Muy pronto en Amazon» de la tarjeta «El libro» por el enlace (está en un comentario) |
 | Automatización del Sistema Advantys: nuevas etiquetas `motivo-ai-act` y `motivo-charla` y campo `presupuesto_confirmado` | webhook de `CONTACTO_WEBHOOK_URL` |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 

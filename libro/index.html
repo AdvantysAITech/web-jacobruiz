@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://jacobruiz.es/assets/img/og.jpg?v=2">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=6">
+<link rel="stylesheet" href="/assets/css/site.css?v=7">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -25,12 +25,12 @@
 <div class="nav-shell">
   <nav class="nav" aria-label="Principal">
     <a class="brand" href="/" aria-label="Jacob Ruiz, inicio"><span class="brand__sig" aria-hidden="true"></span></a>
-    <ul class="nav__links"><li><a href="/cumplimiento-ai-act">AI Act · 1.990 €</a></li><li><a href="/iso-42001">ISO 42001</a></li><li><a href="/charlas">Charlas · 900 €</a></li><li><a href="/guia">Guía del AI Act</a></li><li><a href="/#libro">El libro</a></li><li><a href="/newsletter">Consejo diario</a></li></ul>
-    <a class="btn" href="/contacto"><span>Contactar</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></span></a>
+    <ul class="nav__links"><li><a href="/cumplimiento-ai-act">AI Act · 1.990 €</a></li><li><a href="/iso-42001">ISO 42001</a></li><li><a href="/charlas">Charlas · 900 €</a></li><li><a href="/guia">Guía del AI Act</a></li><li><a href="/newsletter">Consejo diario</a></li></ul>
+    <div class="nav__cta"><a class="btn btn--book" href="/comprar-libro"><span>Compra mi libro</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-book-open-text"/></svg></span></a><a class="btn" href="/contacto"><span>Contactar</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></span></a></div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span></button>
   </nav>
 </div>
-<div class="menu" id="menu" aria-hidden="true"><ul><li><a href="/cumplimiento-ai-act">AI Act · 1.990 €<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/iso-42001">ISO 42001<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/charlas">Charlas · 900 €<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/guia">Guía del AI Act<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/#libro">El libro<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/newsletter">Consejo diario<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/libro">Material del libro<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/contacto">Contactar<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li></ul></div>
+<div class="menu" id="menu" aria-hidden="true"><ul><li class="menu__book"><a href="/comprar-libro">Compra mi libro<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-book-open-text"/></svg></a></li><li><a href="/cumplimiento-ai-act">AI Act · 1.990 €<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/iso-42001">ISO 42001<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/charlas">Charlas · 900 €<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/guia">Guía del AI Act<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/newsletter">Consejo diario<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/libro">Material del libro<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li><li><a href="/contacto">Contactar<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></a></li></ul></div>
 <main id="contenido">
 <section class="res-head">
   <div class="wrap">
@@ -41,7 +41,15 @@
       <a class="btn" href="#acceso" data-href="/libro/descargas/Recursos_Vende_mas_y_trabaja_menos.zip" download><span>Descargar todo (1,3 MB)</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-file-zip"/></svg></span></a>
       <a class="link-arrow" href="https://advantys.ai/curso-ia-gratis">Curso de IA gratuito <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-up-right"/></svg></a>
     </div>
-    <p class="meta" data-reveal style="--i:4">Las hojas de Excel funcionan también en Google Sheets y LibreOffice. Las celdas en amarillo claro son las que rellenas tú; el resto se calcula solo.</p>
+    <aside class="buy-book" data-reveal style="--i:4" aria-label="Comprar el libro">
+      <div class="buy-book__cover media" data-hueco="Portada"><img src="/assets/img/portada-libro.jpg" width="1000" height="1500" alt="Portada del libro «Vende más y trabaja menos»" loading="lazy"></div>
+      <div>
+        <h2 class="h3">¿Todavía no tienes el libro?</h2>
+        <p>Este material acompaña a «Vende más y trabaja menos»: cómo automatizar el marketing, las ventas y la posventa de tu pyme con IA, con un plan de 90 días. Y con el libro, el curso de IA gratuito para ti y tu equipo.</p>
+      </div>
+      <a class="btn btn--book" href="/comprar-libro"><span>Compra mi libro</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-book-open-text"/></svg></span></a>
+    </aside>
+    <p class="meta" data-reveal style="--i:5">Las hojas de Excel funcionan también en Google Sheets y LibreOffice. Las celdas en amarillo claro son las que rellenas tú; el resto se calcula solo.</p>
   </div>
 </section>
 
@@ -486,7 +494,7 @@
           <li><a href="/cumplimiento-ai-act">Cumplir el AI Act</a></li>
           <li><a href="/iso-42001">ISO/IEC 42001</a></li>
           <li><a href="/charlas">Charlas</a></li>
-          <li><a href="/#libro">El libro</a></li>
+          <li><a href="/comprar-libro">Compra mi libro</a></li>
         </ul>
       </div>
       <div>

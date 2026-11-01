@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/comprar-libro",
+      "destination": "/#libro",
+      "permanent": false
+    },
+    {
       "source": "/poltica-de-privacidad-9381",
       "destination": "/privacidad",
       "permanent": true
