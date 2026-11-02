@@ -27,5 +27,6 @@
 <!-- noticias:fin -->
 
 ## Contacto
+- [Sobre mí](https://jacobruiz.es/sobre-mi): quién es Jacob Ruiz y a qué se dedica.
 - [Contacto](https://jacobruiz.es/contacto) · contacto@jacobruiz.es
 - [Newsletter diaria «Un consejo al día»](https://jacobruiz.es/newsletter)
