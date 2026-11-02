@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Actualidad del AI Act · Jacob Ruiz</title>
+  <link>https://jacobruiz.es/noticias</link>
+  <atom:link href="https://jacobruiz.es/noticias/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Las noticias del Reglamento europeo de inteligencia artificial explicadas para empresas, cada semana.</description>
+  <language>es-es</language>
+  <lastBuildDate>Mon, 02 Nov 2026 07:06:56 +0000</lastBuildDate>
+  <item>
+    <title>El AI Act ya tiene su primera norma armonizada, y se parece mucho a la ISO 42001</title>
+    <link>https://jacobruiz.es/noticias/norma-armonizada-ai-act-en-18286</link>
+    <guid isPermaLink="true">https://jacobruiz.es/noticias/norma-armonizada-ai-act-en-18286</guid>
+    <pubDate>Mon, 02 Nov 2026 08:00:00 +0100</pubDate>
+    <description>La EN 18286 es la primera norma armonizada del AI Act. Qué es, a quién obliga de verdad, qué tiene que ver con la ISO 42001 y qué hacer en tu pyme.</description>
+  </item>
+</channel>
+</rss>

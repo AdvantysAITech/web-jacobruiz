@@ -20,6 +20,12 @@
 - [ISO/IEC 42001 y AI Act](https://jacobruiz.es/guia/iso-42001-vs-ai-act)
 - [AESIA y sanciones](https://jacobruiz.es/guia/aesia-sanciones)
 
+<!-- noticias:inicio -->
+## Actualidad del AI Act
+- [Todas las noticias](https://jacobruiz.es/noticias): una noticia comentada cada semana sobre el Reglamento europeo de IA.
+- [El AI Act ya tiene su primera norma armonizada, y se parece mucho a la ISO 42001](https://jacobruiz.es/noticias/norma-armonizada-ai-act-en-18286) (2026-11-02)
+<!-- noticias:fin -->
+
 ## Contacto
 - [Contacto](https://jacobruiz.es/contacto) · contacto@jacobruiz.es
 - [Newsletter diaria «Un consejo al día»](https://jacobruiz.es/newsletter)

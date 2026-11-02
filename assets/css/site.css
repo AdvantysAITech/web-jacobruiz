@@ -844,3 +844,12 @@ html:not(.material-libre) .file__get { opacity: 0.35; }
 
 /* Móviles muy estrechos */
 @media (max-width: 350px) { .nav .brand__sig { height: 26px; } .nav .btn--book { padding: 4px 12px; font-size: 0.85rem; } }
+
+/* ---------- Actualidad del AI Act (/noticias) ---------- */
+.news-date { margin: 0 0 10px; font-family: var(--mono); font-size: 0.8125rem; color: var(--accent-ink); }
+.news-list { grid-template-columns: 1fr; }
+.prose blockquote { margin: 24px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent); }
+.prose blockquote p { color: var(--text); font-size: 1.1rem; }
+.news-sources { margin-top: 48px; }
+.news-sources h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.news-sources ul { margin: 0; }

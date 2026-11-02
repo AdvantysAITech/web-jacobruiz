@@ -13,6 +13,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 3.900 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
 | `/iso-42001` | `iso-42001.html` | Implantación y auditoría interna ISO/IEC 42001, precio a medida (QR del libro: arriba lleva un aviso con enlace al paquete de 3.900 € y al capítulo 14, no quitarlo) |
 | `/guia` | `guia/index.html` | Guía del AI Act: índice de las 8 guías de `guia/*.html` (contenido para SEO) |
+| `/noticias` | `noticias/*.html` (generado) | «Actualidad del AI Act»: una noticia comentada cada semana. No se edita a mano: se escribe en `herramientas/noticias/articulos/` y se genera con `herramientas/noticias/publicar.py` (ver más abajo) |
 | `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
@@ -47,6 +48,15 @@ Imágenes en `assets/img`: `jacob-ruiz.jpg` (782 × 978), `portada-libro.jpg` (1
 Acceso al material (`api/_acceso.js`): cookie `jr_material` firmada con `MATERIAL_SECRET` si existe en Vercel o, si no, con una clave derivada de `CONTACTO_WEBHOOK_URL`; dura un año. Si se cambian las preguntas del libro, cambiarlas en `api/_acceso.js` (con sus respuestas) y el texto en `assets/js/site.js`, en el mismo orden.
 
 Material del libro en `libro/descargas`: los 40 archivos y el ZIP con todo, del paquete «Pagina_de_recursos_para_subir_a_la_web.zip» de la carpeta «4 Para la web» (versión del 22 de octubre, 13:50). Si se cambia algún archivo, hay que actualizar también su tamaño en `libro/index.html`.
+
+## Noticias semanales («Actualidad del AI Act»)
+
+- Cada noticia es un archivo `herramientas/noticias/articulos/AAAA-MM-DD-slug.md`. El manual completo (cómo elegir la noticia, comprobarla, escribirla con la voz de Jacob, SEO y publicación) está en `herramientas/noticias/GUIA.md`.
+- `python3 herramientas/noticias/publicar.py --comprobar` revisa las noticias (longitudes SEO, palabra clave, enlaces internos que existan, fuente, frases prohibidas, citas largas). Si algo falla, no publica.
+- `python3 herramientas/noticias/publicar.py` genera `noticias/<slug>.html` (NewsArticle, migas de pan y preguntas frecuentes en JSON-LD), `noticias/index.html`, `noticias/feed.xml` (RSS) y los bloques automáticos entre `<!-- noticias:inicio -->` y `<!-- noticias:fin -->` de `index.html`, `guia/index.html`, `sitemap.xml` y `llms.txt`. No hay que tocar esos bloques a mano.
+- La cabecera y el pie de las noticias se copian de `guia/ai-act-pymes.html` cada vez que se genera: si cambian en la web, basta con volver a generar.
+- Los precios de los cierres de las noticias están arriba del script (`PRECIO_PAQUETE`, `PRECIO_CHARLA`).
+- Una tarea programada semanal busca la noticia, la escribe, la publica y avisa a Jacob. `herramientas/` no se publica (`.vercelignore`).
 
 ## Favicon
 
