@@ -39,7 +39,7 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 
 | Qué | Dónde |
 | --- | --- |
-| Enlace a Amazon cuando el libro esté publicado | 1) `vercel.json`: cambiar el destino de la redirección `/comprar-libro` (ahora `/#libro`) por la URL de Amazon. Todos los botones «Compra mi libro» apuntan ahí. 2) `index.html`: cambiar el «Muy pronto en Amazon» de la tarjeta «El libro» por el enlace (está en un comentario) |
+| Enlace a Amazon | Hecho (nov 2026): `/comprar-libro` redirige a la ficha de Amazon España (eBook en preventa, ASIN B0HH2TGX5D; la tapa blanda, ASIN B0HQ477LT8, se une a la misma ficha). Para cambiarlo, editar el destino en `vercel.json` |
 | Automatización del Sistema Advantys: nuevas etiquetas `motivo-ai-act` y `motivo-charla` y campo `presupuesto_confirmado` | webhook de `CONTACTO_WEBHOOK_URL` |
 | Titular de los textos legales (propuesto: Advantys Ai, SL) | `privacidad.html`, `aviso-legal.html` |
 

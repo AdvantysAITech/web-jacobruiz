@@ -144,11 +144,9 @@
         <h3 class="offer__name">El libro</h3>
         <p class="offer__text">Si 900 € te parecen mucho, empieza por aquí. Cómo automatizar el marketing, las ventas y la posventa de tu pyme con IA, con un capítulo entero sobre la ley. Incluye un curso de IA gratuito para ti y tu equipo.</p>
         <div class="offer__foot">
-          <!-- Cuando el libro esté en Amazon: 1) en vercel.json, cambiar el destino de /comprar-libro por la URL de Amazon
-               (todos los botones «Compra mi libro» de la web apuntan a /comprar-libro) y 2) cambiar este span por
-               <a class="btn" href="/comprar-libro"><span>Comprar en Amazon</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-up-right"/></svg></span></a> -->
-          <span class="btn btn--ghost btn--plain" aria-disabled="true" style="cursor:default">Muy pronto en Amazon</span>
-          <a class="btn" href="/libro"><span>Material gratis del libro</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></span></a>
+          <!-- El enlace de Amazon se cambia en vercel.json (redirección /comprar-libro). -->
+          <a class="btn" href="/comprar-libro"><span>Cómpralo en Amazon</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-up-right"/></svg></span></a>
+          <a class="btn btn--ghost" href="/libro"><span>Material gratis del libro</span><span class="btn__dot"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-right"/></svg></span></a>
         </div>
       </article>
     </div>
