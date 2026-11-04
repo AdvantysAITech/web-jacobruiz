@@ -68,6 +68,16 @@
       "permanent": false
     },
     {
+      "source": "/wa",
+      "destination": "/newsletter?origen_trafico=whatsapp",
+      "permanent": false
+    },
+    {
+      "source": "/(WA|Wa|wA)",
+      "destination": "/newsletter?origen_trafico=whatsapp",
+      "permanent": false
+    },
+    {
       "source": "/cumplir-ai-act",
       "destination": "/cumplimiento-ai-act",
       "permanent": true
