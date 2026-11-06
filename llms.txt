@@ -12,7 +12,7 @@
 
 ## Guía del AI Act
 - [AI Act para pymes](https://jacobruiz.es/guia/ai-act-pymes)
-- [Calendario del AI Act tras el Ómnibus Digital](https://jacobruiz.es/guia/calendario-ai-act)
+- [Fechas clave del AI Act tras el Ómnibus Digital](https://jacobruiz.es/guia/calendario-ai-act)
 - [Alfabetización en IA, artículo 4](https://jacobruiz.es/guia/alfabetizacion-ia-articulo-4)
 - [Obligaciones de transparencia, artículo 50](https://jacobruiz.es/guia/transparencia-ia-chatbots)
 - [Inventario de sistemas de IA](https://jacobruiz.es/guia/inventario-sistemas-ia)

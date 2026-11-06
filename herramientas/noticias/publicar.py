@@ -279,7 +279,14 @@ def cabeza(titulo, descripcion, url, tipo, ld, extra=""):
 <meta property="og:description" content="{esc(descripcion)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{WEB}/assets/img/og.jpg?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jacob Ruiz, consultor del AI Act, y su libro «Vende más y trabaja menos»">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(titulo)}">
+<meta name="twitter:description" content="{esc(descripcion)}">
+<meta name="twitter:image" content="{WEB}/assets/img/og.jpg?v=3">
+<meta name="twitter:image:alt" content="Jacob Ruiz, consultor del AI Act, y su libro «Vende más y trabaja menos»">
 <link rel="alternate" type="application/rss+xml" title="Actualidad del AI Act · Jacob Ruiz" href="{WEB}/noticias/feed.xml">
 {extra}{iconos}<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False, separators=(",", ":"))}</script>
 </head>
@@ -396,8 +403,8 @@ def pagina_articulo(a, todos):
 def pagina_indice(todos):
     cab, pie, _, persona = PIEZAS
     url = f"{WEB}/noticias"
-    desc = ("Las noticias del Reglamento europeo de inteligencia artificial que afectan a tu empresa, explicadas cada semana "
-            "sin jerga por Jacob Ruiz: qué ha pasado y qué hacer.")
+    desc = ("Las noticias del AI Act que afectan a tu empresa, explicadas cada semana sin jerga por Jacob Ruiz: "
+            "qué ha pasado con la ley de IA y qué hacer.")
     ld = {"@context": "https://schema.org", "@graph": [persona,
           {"@type": "CollectionPage", "@id": url + "#pagina", "url": url, "name": "Actualidad del AI Act", "description": desc,
            "inLanguage": "es-ES", "author": {"@id": f"{WEB}/#jacob"},
@@ -407,7 +414,7 @@ def pagina_indice(todos):
               {"@type": "ListItem", "position": 1, "name": "Inicio", "item": f"{WEB}/"},
               {"@type": "ListItem", "position": 2, "name": "Actualidad del AI Act", "item": url}]}]}
     lista = "\n".join(tarjeta(a, "h2") for a in todos) or '<li><p>Muy pronto, la primera noticia.</p></li>'
-    return cabeza("Actualidad del AI Act: noticias del Reglamento de IA · Jacob Ruiz", desc, url, "website", ld) + cab + f"""<main id="contenido">
+    return cabeza("Noticias del AI Act: actualidad de la ley de IA · Jacob Ruiz", desc, url, "website", ld) + cab + f"""<main id="contenido">
 <section class="page-head">
   <div class="wrap">
     <ol class="crumbs" aria-label="Estás aquí"><li><a href="/">Inicio</a></li><li aria-current="page">Actualidad del AI Act</li></ol>

@@ -33,6 +33,9 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 - Legales, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.
 - Search Console: propiedad `https://jacobruiz.es/` en la cuenta contacto@jacobruiz.es, verificada por DNS y por la etiqueta `google-site-verification` de `index.html` (no quitarla).
 - IndexNow (Bing, Yandex, Seznam, Naver): clave en `/6944e9709928970ea3dd2589c6448adb.txt`. Al publicar o cambiar una página, se avisa con `https://api.indexnow.org/indexnow?url=URL&key=6944e9709928970ea3dd2589c6448adb`.
+- Palabra clave principal: «AI Act» en títulos, H1 y descripciones; «ley de IA» como variante secundaria (es como lo busca la gente: «ley ia pymes», «fechas ley ia»). «Reglamento europeo de IA» solo dentro del texto. Títulos de 60 caracteres como máximo y descripciones de 155.
+- Todas las páginas llevan og:image con ancho, alto y texto alternativo, y las etiquetas twitter:title, twitter:description e twitter:image. El generador de noticias las pone solo.
+- La portada enlaza a las ocho guías (seis tarjetas y dos enlaces de texto).
 - Las guías dicen «Actualizado el …»: al cambiar una, actualiza la fecha visible, `dateModified` y el `lastmod` del sitemap.
 
 ## Pendiente
