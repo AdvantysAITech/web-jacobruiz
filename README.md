@@ -27,7 +27,8 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 
 ## SEO
 
-- Cada página comercial trabaja un grupo de búsquedas: `/cumplimiento-ai-act` (consultoría AI Act), `/iso-42001` (implantación y auditoría ISO 42001), `/charlas` (charla y formación AI Act). Las guías de `/guia` cubren las preguntas y enlazan a esas tres.
+- Embudo de venta (nov 2026): consejo diario gratis (`/newsletter`) → libro (`/libro`, `/comprar-libro`) → formación (`/charlas`) → consultoría (`/cumplimiento-ai-act`, `/iso-42001`). La portada, el pie y los enlaces siguen ese orden.
+- Palabras clave por página (Google Trends, España, nov 2026: «curso ia» y «formación ia» se buscan mucho más que «charla», «ponencia» o «conferencia»; «libro ia» e «ia para empresas» tienen volumen; «newsletter ia» casi ninguno): `/` «IA para empresas» + «AI Act»; `/newsletter` «consejos de IA para empresas» gratis; `/libro` «libro de IA para empresas» y «curso de IA gratis»; `/charlas` «formación en IA y AI Act para empresas» (charla, ponencia o conferencia en el texto); `/cumplimiento-ai-act` consultoría AI Act; `/iso-42001` implantación y auditoría ISO 42001. Redirecciones `/formacion`, `/formacion-ia`, `/conferencia(s)`, `/ponencia(s)` → `/charlas` y `/consejos-ia` → `/newsletter`. Las guías de `/guia` cubren las preguntas y enlazan a esas tres.
 - Datos estructurados (schema.org en JSON-LD) en portada, servicios, charlas y guías: Person, ProfessionalService, Service con precio, Article, BreadcrumbList y FAQPage. Si cambias un precio o una pregunta frecuente, cámbialo también en su bloque `application/ld+json`.
 - `sitemap.xml` solo lleva páginas indexables. Al publicar una guía nueva: añádela al sitemap, al índice de `/guia`, a `llms.txt` y envíala en Search Console.
 - Legales, `/formulario`, `/suscrito`, `/baja` y `/diagnostico` van con `noindex`. `robots.txt` no bloquea páginas (si se bloquean, Google no ve el `noindex`); solo `/api/`.

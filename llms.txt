@@ -4,7 +4,7 @@
 
 ## Servicios
 - [Cumplir el AI Act](https://jacobruiz.es/cumplimiento-ai-act): paquete de cumplimiento del Reglamento europeo de IA para empresas que usan IA de otros. 3.900 € + IVA, precio cerrado.
-- [Charla sobre el Reglamento europeo de IA](https://jacobruiz.es/charlas): de 60 a 90 minutos para el equipo. 900 € + IVA.
+- [Formación en IA y AI Act para empresas](https://jacobruiz.es/charlas): charla, ponencia o conferencia de 60 a 90 minutos para el equipo, presencial u online. 900 € + IVA.
 - [ISO/IEC 42001](https://jacobruiz.es/iso-42001): diagnóstico de brecha, implantación, auditoría interna y acompañamiento a la certificación. Precio cerrado por escrito antes de empezar.
 
 ## El libro
@@ -29,4 +29,4 @@
 ## Contacto
 - [Sobre mí](https://jacobruiz.es/sobre-mi): quién es Jacob Ruiz y a qué se dedica.
 - [Contacto](https://jacobruiz.es/contacto) · contacto@jacobruiz.es
-- [Newsletter diaria «Un consejo al día»](https://jacobruiz.es/newsletter)
+- [Consejos de IA para empresas, gratis: «Un consejo al día»](https://jacobruiz.es/newsletter)

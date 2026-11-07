@@ -101,6 +101,41 @@
       "source": "/blog",
       "destination": "/guia",
       "permanent": true
+    },
+    {
+      "source": "/formacion",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/formacion-ia",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/conferencias",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/conferencia",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/ponencias",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/ponencia",
+      "destination": "/charlas",
+      "permanent": true
+    },
+    {
+      "source": "/consejos-ia",
+      "destination": "/newsletter",
+      "permanent": true
     }
   ],
   "headers": [
