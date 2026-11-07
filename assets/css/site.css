@@ -853,3 +853,7 @@ html:not(.material-libre) .file__get { opacity: 0.35; }
 .news-sources { margin-top: 48px; }
 .news-sources h2 { font-size: 1.1rem; margin: 0 0 8px; }
 .news-sources ul { margin: 0; }
+
+/* Página de venta del libro (/comprar-libro) */
+.book-hero { max-width: 300px; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.35); }
+@media (max-width: 999px) { .book-hero { max-width: 220px; } }
