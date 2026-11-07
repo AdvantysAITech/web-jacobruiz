@@ -8,6 +8,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | --- | --- | --- |
 | `/` | `index.html` | Portada de venta: precio primero (Cumplir el AI Act 3.900 €, charla 900 €, libro), filtro de presupuesto, enlace a Advantys AI |
 | `/charlas` | `charlas.html` | Charla sobre el Reglamento de IA, 900 € + IVA (también `/charla`) |
+| `/comprar-libro` | `comprar-libro.html` | Venta directa del libro firmado y dedicado, 19,90 € IVA incluido, envío incluido a la península. Botón al enlace de pago de Stripe (cuenta Jacob Ruiz): factura automática con IVA del 4 %, dirección de envío y campo «Nombre para la dedicatoria». Tras pagar, Stripe redirige a `/libro-gracias` (noindex). Cada venta entra en GHL (embudo «Ventas del libro», etapa «Web») |
 | `/libro` | `libro/index.html` | Material del libro (indexable desde el 1 de noviembre de 2026: es la página que sale en Google al buscar el título; arriba lleva el bloque «Compra mi libro»). Anclas `#capitulo-1` a `#capitulo-17` y `#anexos` (las usan los QR del libro, no cambiarlas). Descargas bloqueadas de verdad: el lector se registra (`/api/material`) o contesta una pregunta del libro (`/api/pregunta`, respuestas solo en el servidor) y recibe una cookie firmada; los archivos se bajan por `/descargas/NOMBRE` (`/api/descarga`), que sin esa cookie devuelve a `/libro`. La ruta directa `/libro/descargas/...` está redirigida |
 | `/diagnostico` | `diagnostico.html` | Puente a Advantys AI: el diagnóstico ya no se vende aquí (QR del libro, no borrar) |
 | `/cumplimiento-ai-act` | `cumplimiento-ai-act.html` | Paquete «Cumplir el AI Act», 3.900 € + IVA (también `/ai-act`, `/cumplir-ai-act`) |
@@ -23,7 +24,7 @@ Norma de Amazon KDP (guía de enlaces de Kindle): un ebook no puede enlazar a fo
 
 La cabecera y el pie están repetidos en cada página: si se cambian, hay que cambiarlos en todas.
 
-Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (también en móvil), el primero del menú del móvil, en el pie y en un bloque destacado arriba de `/libro`. Todos enlazan a `/comprar-libro`, una redirección de `vercel.json`: el enlace de Amazon se cambia en un solo sitio.
+Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (también en móvil), el primero del menú del móvil, en el pie y en un bloque destacado arriba de `/libro`. Todos enlazan a `/comprar-libro`, la página de venta propia (nov 2026). El ebook de Kindle se enlaza desde esa página; `/amazon` redirige a la ficha de Amazon.
 
 ## SEO
 

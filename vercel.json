@@ -3,9 +3,14 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/comprar-libro",
+      "source": "/amazon",
       "destination": "https://www.amazon.es/dp/B0HH2TGX5D",
       "permanent": false
+    },
+    {
+      "source": "/libro-firmado",
+      "destination": "/comprar-libro",
+      "permanent": true
     },
     {
       "source": "/libro/descargas/:archivo*",
