@@ -138,6 +138,11 @@
       "permanent": true
     },
     {
+      "source": "/podcast",
+      "destination": "https://open.spotify.com/show/4Oussn4cbTn3hvbnzIZvHQ",
+      "permanent": false
+    },
+    {
       "source": "/consejos-ia",
       "destination": "/newsletter",
       "permanent": true

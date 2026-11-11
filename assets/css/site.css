@@ -857,3 +857,13 @@ html:not(.material-libre) .file__get { opacity: 0.35; }
 /* Página de venta del libro (/comprar-libro) */
 .book-hero { max-width: 300px; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.35); }
 @media (max-width: 999px) { .book-hero { max-width: 220px; } }
+
+/* ---------- Podcast en el pie (aparece con data-desde) ---------- */
+.footer__pod { display: flex; align-items: center; gap: 20px; margin: -32px 0 48px; padding: 18px 20px; border-radius: var(--radius-card); background: #0c0d0f; color: #f2efe8; }
+.footer__pod[hidden] { display: none; }
+.footer__pod img { width: 72px; height: 72px; border-radius: 10px; flex: none; }
+.footer__pod-text { flex: 1; min-width: 0; }
+.footer__pod-text small { display: block; font-family: var(--mono); font-size: 0.75rem; color: #e3a92f; margin-bottom: 4px; }
+.footer__pod-text p { margin: 0; color: #f2efe8; font-size: 1.05rem; line-height: 1.35; }
+.footer .footer__pod .btn { flex: none; color: #0c0d0f; }
+@media (max-width: 640px) { .footer__pod { flex-wrap: wrap; } .footer__pod .btn { width: 100%; justify-content: space-between; } }

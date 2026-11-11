@@ -55,6 +55,12 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") cerrarMenu(); });
   }
 
+  /* ---------- Elementos que aparecen a partir de una fecha (data-desde) ---------- */
+  document.querySelectorAll("[data-desde]").forEach(function (el) {
+    var d = Date.parse(el.getAttribute("data-desde"));
+    if (!isNaN(d) && Date.now() >= d) el.hidden = false;
+  });
+
   /* ---------- Aparición al entrar en pantalla ---------- */
   var revelar = document.querySelectorAll("[data-reveal]");
   if (reduce || !("IntersectionObserver" in window)) {
