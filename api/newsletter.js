@@ -9,7 +9,7 @@
 */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const LUGARES = ["portada", "newsletter", "pie", "charlas", "ai-act", "libro"];
+const LUGARES = ["portada", "newsletter", "pie", "charlas", "ai-act", "libro", "podcast"];
 
 function traficoSlug(v) {
   return String(v == null ? "" : v).toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);

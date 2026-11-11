@@ -16,6 +16,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | `/guia` | `guia/index.html` | Guía del AI Act: índice de las 8 guías de `guia/*.html` (contenido para SEO) |
 | `/noticias` | `noticias/*.html` (generado) | «Actualidad del AI Act»: una noticia comentada cada semana. No se edita a mano: se escribe en `herramientas/noticias/articulos/` y se genera con `herramientas/noticias/publicar.py` (ver más abajo) |
 | `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
+| `/podcast` | `podcast.html` | Podcast «Sin excusas» (Spotify for Creators, show `4Oussn4cbTn3hvbnzIZvHQ`). Antes del estreno (17 nov 2026, 6:55) oculta el botón de Spotify y el reproductor y muestra un aviso; después carga el reproductor solo. Formulario del consejo diario con etiqueta `newsletter-desde-podcast`. Enlazado en el menú del móvil y en el pie (no en la cabecera de escritorio: no cabe). Cuando haya enlaces de Apple Podcasts, Amazon Music o iVoox, añadirlos junto al botón de Spotify y en `sameAs` |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
 | `/privacidad`, `/aviso-legal`, `/cookies` | `*.html` | Textos legales |
