@@ -138,6 +138,31 @@
       "permanent": true
     },
     {
+      "source": "/sinexcusas",
+      "destination": "/newsletter?origen_trafico=podcast",
+      "permanent": false
+    },
+    {
+      "source": "/sin-excusas",
+      "destination": "/newsletter?origen_trafico=podcast",
+      "permanent": false
+    },
+    {
+      "source": "/sinexcusa",
+      "destination": "/newsletter?origen_trafico=podcast",
+      "permanent": false
+    },
+    {
+      "source": "/excusas",
+      "destination": "/newsletter?origen_trafico=podcast",
+      "permanent": false
+    },
+    {
+      "source": "/(SinExcusas|Sinexcusas|SINEXCUSAS|sinExcusas)",
+      "destination": "/newsletter?origen_trafico=podcast",
+      "permanent": false
+    },
+    {
       "source": "/podcast",
       "destination": "https://open.spotify.com/show/4Oussn4cbTn3hvbnzIZvHQ",
       "permanent": false

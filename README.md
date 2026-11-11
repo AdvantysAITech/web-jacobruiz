@@ -16,6 +16,7 @@ Web estática (HTML, CSS y JS sin dependencias ni paso de compilación). Se desp
 | `/guia` | `guia/index.html` | Guía del AI Act: índice de las 8 guías de `guia/*.html` (contenido para SEO) |
 | `/noticias` | `noticias/*.html` (generado) | «Actualidad del AI Act»: una noticia comentada cada semana. No se edita a mano: se escribe en `herramientas/noticias/articulos/` y se genera con `herramientas/noticias/publicar.py` (ver más abajo) |
 | `/newsletter` | `newsletter.html` | Alta en la newsletter diaria «Un consejo al día» (también `/consejo`) |
+| `/sinexcusas` | redirección | Dirección que se dice en el podcast para apuntarse al consejo diario («jacobruiz.es barra sinexcusas, todo junto»). Lleva a `/newsletter?origen_trafico=podcast`, así las altas llevan la etiqueta `trafico-podcast`. También `/sin-excusas`, `/sinexcusa`, `/excusas` y variantes con mayúsculas |
 | `/podcast` | redirección | Lleva al podcast «Sin excusas» en Spotify (show `4Oussn4cbTn3hvbnzIZvHQ`). No hay página propia: en el pie de todas las páginas hay una franja `footer__pod` con el botón «Suscríbete en Spotify», oculta hasta el estreno (17 nov 2026, 6:55) mediante `data-desde` (lo resuelve `assets/js/site.js`) |
 | `/contacto` | `contacto.html` | Contacto (QR del libro) |
 | `/formulario` | `formulario.html` | Formulario, un clic detrás de las páginas anteriores. Admite `?motivo=ai-act`, `charla`, `iso-42001` o `contacto` (los antiguos `conferencia` y `diagnostico` se convierten solos). Casilla obligatoria de presupuesto salvo en «Otro asunto» |
