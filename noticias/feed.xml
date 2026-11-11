@@ -6,7 +6,14 @@
   <atom:link href="https://jacobruiz.es/noticias/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Las noticias del Reglamento europeo de inteligencia artificial explicadas para empresas, cada semana.</description>
   <language>es-es</language>
-  <lastBuildDate>Fri, 06 Nov 2026 19:07:55 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 16:08:37 +0000</lastBuildDate>
+  <item>
+    <title>Dieciséis países aún no tienen montado quién vigila el AI Act. España, a medias</title>
+    <link>https://jacobruiz.es/noticias/autoridades-nacionales-ai-act-retraso-paises</link>
+    <guid isPermaLink="true">https://jacobruiz.es/noticias/autoridades-nacionales-ai-act-retraso-paises</guid>
+    <pubDate>Wed, 11 Nov 2026 08:00:00 +0100</pubDate>
+    <description>Las autoridades nacionales del AI Act siguen sin estar listas en 16 países, España incluida a medias. Qué significa para tu empresa y qué hacer ya.</description>
+  </item>
   <item>
     <title>El AI Act ya tiene su primera norma armonizada, y se parece mucho a la ISO 42001</title>
     <link>https://jacobruiz.es/noticias/norma-armonizada-ai-act-en-18286</link>

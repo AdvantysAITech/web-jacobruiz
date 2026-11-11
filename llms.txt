@@ -23,6 +23,7 @@
 <!-- noticias:inicio -->
 ## Actualidad del AI Act
 - [Todas las noticias](https://jacobruiz.es/noticias): una noticia comentada cada semana sobre el Reglamento europeo de IA.
+- [Dieciséis países aún no tienen montado quién vigila el AI Act. España, a medias](https://jacobruiz.es/noticias/autoridades-nacionales-ai-act-retraso-paises) (2026-11-11)
 - [El AI Act ya tiene su primera norma armonizada, y se parece mucho a la ISO 42001](https://jacobruiz.es/noticias/norma-armonizada-ai-act-en-18286) (2026-11-02)
 <!-- noticias:fin -->
 
