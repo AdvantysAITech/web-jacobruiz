@@ -867,3 +867,13 @@ html:not(.material-libre) .file__get { opacity: 0.35; }
 .footer__pod-text p { margin: 0; color: #f2efe8; font-size: 1.05rem; line-height: 1.35; }
 .footer .footer__pod .btn { flex: none; color: #0c0d0f; }
 @media (max-width: 640px) { .footer__pod { flex-wrap: wrap; } .footer__pod .btn { width: 100%; justify-content: space-between; } }
+.footer__pod-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none; }
+.footer__pod-alt { display: flex; align-items: center; gap: 14px; margin: 0; font-family: var(--mono); font-size: 0.72rem; color: #8d8a84; white-space: nowrap; }
+.footer__pod-alt a { display: inline-flex; align-items: center; gap: 5px; color: #b9b5ad; text-decoration: none; }
+.footer__pod-alt a:hover, .footer__pod-alt a:focus-visible { color: #f2efe8; }
+.footer__pod-ico { width: 14px; height: 14px; flex: none; }
+@media (max-width: 640px) {
+  .footer__pod-cta { width: 100%; align-items: stretch; }
+  .footer__pod-alt { justify-content: space-between; gap: 8px; font-size: 0.7rem; }
+  .footer__pod-alt .x { display: none; }
+}

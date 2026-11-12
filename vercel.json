@@ -163,6 +163,21 @@
       "permanent": false
     },
     {
+      "source": "/podcast/apple",
+      "destination": "https://podcasts.apple.com/es/podcast/id6833886810",
+      "permanent": false
+    },
+    {
+      "source": "/podcast/amazon",
+      "destination": "https://music.amazon.es/podcasts/f984c21d-ade7-45ba-80f0-d86090540efd",
+      "permanent": false
+    },
+    {
+      "source": "/podcast/ivoox",
+      "destination": "https://go.ivoox.com/sq/3253589",
+      "permanent": false
+    },
+    {
       "source": "/podcast",
       "destination": "https://open.spotify.com/show/4Oussn4cbTn3hvbnzIZvHQ",
       "permanent": false
