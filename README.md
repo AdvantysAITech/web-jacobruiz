@@ -30,7 +30,7 @@ Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (tamb
 
 ## Chat de la web (SofIA)
 
-Todas las páginas salvo `/baja` llevan, justo antes de `</body>`, el widget de chat de GHL «SofIA · Web jacobruiz.es» (`data-widget-id="6b048faa10f9c20b4dee27b6"`). Lo atiende el agente de Conversation AI «SofIA - Asistente virtual de Jacob Ruiz» en piloto automático. El widget pide nombre y email antes de empezar, se carga cuando el visitante interactúa con la página y avisa de que es una IA. Los contactos del chat entran con las etiquetas `origen-chatbot-sofia` y `origen-chat-web` (flujo «SofIA · 05 Contacto desde el chat web»). Las noticias heredan el script del pie de `guia/ai-act-pymes.html`. Si se quita o cambia el widget, cambiarlo en todas las páginas y revisar `/privacidad` y `/cookies`.
+Todas las páginas salvo `/baja` llevan, justo antes de `</body>`, `assets/js/chat.js`, que pinta el botón «Pregunta a SofIA» y solo carga el widget de chat de GHL «SofIA · Web jacobruiz.es» (`data-widget-id="6b048faa10f9c20b4dee27b6"`) cuando la persona lo pulsa (o directamente si ya tiene una conversación abierta en ese navegador). Así no se guarda nada en el navegador sin que la persona haya pedido el chat. Lo atiende el agente de Conversation AI «SofIA - Asistente virtual de Jacob Ruiz» en piloto automático. El chat avisa de que es una IA y SofIA pide el nombre y el email durante la conversación. Los contactos del chat entran con las etiquetas `origen-chatbot-sofia` y `origen-chat-web` (flujo «SofIA · 05 Contacto desde el chat web»). Las noticias heredan el script del pie de `guia/ai-act-pymes.html`. Si se quita o cambia el widget, cambiarlo en todas las páginas y revisar `/privacidad` y `/cookies`.
 
 ## SEO
 
