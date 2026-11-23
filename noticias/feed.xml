@@ -6,7 +6,14 @@
   <atom:link href="https://jacobruiz.es/noticias/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Las noticias del Reglamento europeo de inteligencia artificial explicadas para empresas, cada semana.</description>
   <language>es-es</language>
-  <lastBuildDate>Mon, 16 Nov 2026 07:53:59 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 23 Nov 2026 07:54:28 +0000</lastBuildDate>
+  <item>
+    <title>Bruselas enseña la plantilla para evaluar el impacto de la IA en los derechos fundamentales. Quién la rellena</title>
+    <link>https://jacobruiz.es/noticias/plantilla-evaluacion-impacto-derechos-fundamentales-ai-act</link>
+    <guid isPermaLink="true">https://jacobruiz.es/noticias/plantilla-evaluacion-impacto-derechos-fundamentales-ai-act</guid>
+    <pubDate>Mon, 23 Nov 2026 08:00:00 +0100</pubDate>
+    <description>La Oficina de IA publica el borrador de plantilla de evaluación de impacto en derechos fundamentales del AI Act. A quién obliga, cuándo y qué hacer ya.</description>
+  </item>
   <item>
     <title>Bruselas publica en español cómo avisar de que usas IA: chatbots, vídeos falsos y fotos retocadas</title>
     <link>https://jacobruiz.es/noticias/directrices-transparencia-ai-act-articulo-50</link>
