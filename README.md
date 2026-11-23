@@ -28,6 +28,10 @@ La cabecera y el pie están repetidos en cada página: si se cambian, hay que ca
 
 Botón «Compra mi libro» (mostaza): en la cabecera de todas las páginas (también en móvil), el primero del menú del móvil, en el pie y en un bloque destacado arriba de `/libro`. Todos enlazan a `/comprar-libro`, la página de venta propia (nov 2026). El ebook de Kindle se enlaza desde esa página; `/amazon` redirige a la ficha de Amazon.
 
+## Chat de la web (SofIA)
+
+Todas las páginas salvo `/baja` llevan, justo antes de `</body>`, el widget de chat de GHL «SofIA · Web jacobruiz.es» (`data-widget-id="6b048faa10f9c20b4dee27b6"`). Lo atiende el agente de Conversation AI «SofIA - Asistente virtual de Jacob Ruiz» en piloto automático. El widget pide nombre y email antes de empezar, se carga cuando el visitante interactúa con la página y avisa de que es una IA. Los contactos del chat entran con las etiquetas `origen-chatbot-sofia` y `origen-chat-web` (flujo «SofIA · 05 Contacto desde el chat web»). Las noticias heredan el script del pie de `guia/ai-act-pymes.html`. Si se quita o cambia el widget, cambiarlo en todas las páginas y revisar `/privacidad` y `/cookies`.
+
 ## SEO
 
 - Embudo de venta (nov 2026): consejo diario gratis (`/newsletter`) → libro (`/libro`, `/comprar-libro`) → formación (`/charlas`) → consultoría (`/cumplimiento-ai-act`, `/iso-42001`). La portada, el pie y los enlaces siguen ese orden.
